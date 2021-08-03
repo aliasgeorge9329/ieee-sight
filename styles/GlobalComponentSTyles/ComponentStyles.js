@@ -10,6 +10,7 @@ export const Section = styled.section`
     position: relative;
     overflow: hidden;
     grid-template-columns: 1fr 1fr;
+    height: ${(props) => props.hero ? "100vh" : "fit-content"};
 
     @media ${(props) => props.theme.breakpoints.md} {
         flex-direction: column;

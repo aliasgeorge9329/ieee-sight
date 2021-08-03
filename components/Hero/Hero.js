@@ -4,7 +4,7 @@ import { LeftSection, RightContainer } from "./HeroStyles";
 
 const Hero = (props) => {
     return (  
-        <Section  row nopadding>
+        <Section hero row nopadding>
             <LeftSection>
                 <SectionTitle main>
                     Interface <br />

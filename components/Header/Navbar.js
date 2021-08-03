@@ -3,29 +3,34 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { UserContext } from '../../lib/authContext';
 import { Button } from '../../styles/GlobalComponentSTyles/ComponentStyles';
-import { NavContaier, NavImg } from './NavbarStyles';
+import { NavContaier, LogoDiv, MiddleDiv, RightDiv, NavLink, NavImg, Logo } from './NavbarStyles';
 
 const Navbar = () => {
     const { user, username } = useContext(UserContext);
 
     return (  
         <NavContaier>
-            <li>
+            <LogoDiv>
                 <Link href="/" passHref>
-                    <a>Interface</a>
+                    <a><Logo>Interface</Logo></a>
                 </Link>
-            </li>
-
-            <li>
-                <Link href="/" passHref>
-                    <a>Blogs</a>
-                </Link>
-            </li>
+            </LogoDiv>
     
-
+            <MiddleDiv>
+                <li>
+                    <Link href="/blog" passHref>
+                        <NavLink>Blogs</NavLink>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/about" passHref>
+                        <NavLink>About Us</NavLink>
+                    </Link>
+                </li>
+            </MiddleDiv>
             {/* if the user has a username */}
             {username && (
-                <>
+                <RightDiv>
                     <li>
                         <Link href="/admin" passHref>
                             <Button>Write Post</Button>
@@ -35,15 +40,15 @@ const Navbar = () => {
                         <Link href={`/${username}`} passHref><NavImg src={user.photoURL} alt="User Image"/>
                         </Link>
                     </li>
-                </>
+                </RightDiv>
             )}
 
             {!username && (
-                <li>
+                <RightDiv>
                     <Link href="/auth" passHref>
                         <Button>Log In</Button>
                     </Link>
-                </li>
+                </RightDiv>
             )}
         </NavContaier>
     );
