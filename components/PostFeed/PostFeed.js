@@ -34,7 +34,7 @@ function PostItem({ post, admin = false }){
             </Link>
             <BannerInfo>
                 <p>{wordCount} words. {minutesToRead} min read</p>
-                <p>👏🏻 Clap</p>
+                <p>❤️</p>
             </BannerInfo>
         </BlogBanner>
     );

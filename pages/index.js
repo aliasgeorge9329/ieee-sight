@@ -9,7 +9,7 @@ import { Button, Conatiner } from '../styles/GlobalComponentSTyles/ComponentStyl
 
 
 // Max post to query per page
-const LIMIT = 10;
+const LIMIT = 2;
 
 export async function getServerSideProps(context) {
   const postsQuery = firestore
