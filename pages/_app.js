@@ -1,26 +1,22 @@
-import Navbar from '../components/Header/Navbar';
-import { Toaster } from 'react-hot-toast';
-import { UserContext } from '../lib/authContext';
-import { useUserData } from '../lib/authHook';
-import Theme from '../styles/theme';
-
+import Navbar from '../components/Header/Navbar'
+import { Toaster } from 'react-hot-toast'
+import { UserContext } from '../lib/authContext'
+import { useUserData } from '../lib/authHook'
+import Theme from '../styles/theme'
+import '../styles/global.css'
 
 function App({ Component, pageProps }) {
-  
-  const userData = useUserData();
+	const userData = useUserData()
 
-  return (
-    <UserContext.Provider value={ userData }>  
-      <Theme>
-        <Navbar />
-        <Component {...pageProps} />
-        <Toaster />
-      </Theme>
-    </UserContext.Provider>
-  );
-  
+	return (
+		<UserContext.Provider value={userData}>
+			{/* <Theme> */}
+			{/* <Navbar /> */}
+			<Component {...pageProps} />
+			<Toaster />
+			{/* </Theme> */}
+		</UserContext.Provider>
+	)
 }
 
-export default App;
-
-
+export default App
