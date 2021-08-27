@@ -16,9 +16,7 @@ export default function LoadMore(props) {
 	else
 		return (
 			<div className={`${styles['load-more-container']} margin flex-center`}>
-				<button className="outline" onClick={props.getMorePosts}>
-					Load More
-				</button>
+				<button onClick={props.getMorePosts}>Load More</button>
 			</div>
 		)
 }

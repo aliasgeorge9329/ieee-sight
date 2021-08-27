@@ -1,25 +1,38 @@
 .header {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
+.bg-image {
+	position: absolute;
+	top: -20%;
+	right: -10%;
 	background-image: url('/Hero.png');
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 45%;
-	background-color: #000;
-	height: 100vh;
-	color: #fff;
-	position: relative;
+	background-size: cover;
+	width: 100vmin;
+	height: 100vmin;
+	animation-name: floating;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
 }
 
 .h1 {
-	font-size: 8vw;
-	text-align: center;
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 11vmin;
 	line-height: 1;
 	letter-spacing: -4px;
 	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
 	text-shadow: rgba(0, 0, 0, 0.644) 0px 12px 12px;
 }
 
@@ -32,35 +45,83 @@
 
 .content-wrapper {
 	display: flex;
-	padding-top: 4rem;
+	justify-content: space-between;
 	padding-bottom: 4rem;
 }
 
 .description-wrapper {
-	flex: 1;
+	max-width: 500px;
 	display: flex;
 	align-items: flex-end;
 	justify-content: flex-end;
 }
 .description {
-	width: 70%;
 	text-align: right;
-	font-weight: 300;
-	color: rgba(255, 255, 255, 0.651);
+	margin-left: 2rem;
 }
 
 .social-wrapper {
 	margin-top: 3rem;
-	flex: 1;
-	justify-content: flex-end;
+	flex-shrink: 0;
 }
 
 .social-title {
 	margin-bottom: 1rem;
-	font-weight: 300;
 }
 
 .icons {
-	font-size: 2.5rem;
+	font-size: 2.3rem;
 	margin-right: 1rem;
+}
+
+@keyframes floating {
+	0% {
+		transform: translate(0, 0px);
+	}
+	50% {
+		transform: translate(0, 30px);
+	}
+	100% {
+		transform: translate(0, -0px);
+	}
+}
+
+@media (max-width: 1000px) {
+	.bg-image {
+		right: -30%;
+		top: -10%;
+		transform: none;
+		max-width: unset;
+		max-height: unset;
+		width: 90vmin;
+		height: 90vmin;
+	}
+	.h1 {
+		font-size: 11vmin;
+		top: 60%;
+	}
+
+	.content-wrapper {
+		padding-bottom: 2rem;
+	}
+}
+
+@media (max-width: 560px) {
+	.bg-image {
+		right: -30%;
+		top: -10%;
+		transform: none;
+		width: 110vmin;
+		height: 110vmin;
+	}
+	.h1 {
+		font-size: 15vmin;
+		top: 60%;
+	}
+	.description-wrapper {
+		display: none;
+	}
+	.content-wrapper {
+		padding-bottom: 2rem;
+	}
 }

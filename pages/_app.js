@@ -4,6 +4,7 @@ import { UserContext } from '../lib/authContext'
 import { useUserData } from '../lib/authHook'
 import Theme from '../styles/theme'
 import '../styles/global.css'
+import '../styles/HamMenu.css'
 
 function App({ Component, pageProps }) {
 	const userData = useUserData()

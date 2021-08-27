@@ -2,6 +2,7 @@ import Hero from '../components/Hero'
 import PostFeed from '../components/PostFeed'
 import LoadMore from '../components/LoadMore'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 import { useState } from 'react'
 import { firestore, fromMillis, postToJSON } from '../lib/firebase'
@@ -45,18 +46,13 @@ export default function Home(props) {
 	}
 
 	return (
-		// <Conatiner>
-		<div>
+		<div className="body">
+			<Navbar />
 			<Hero />
 			<PostFeed posts={posts} />
-
 			<LoadMore getMorePosts={getMorePosts} loading={loading} postsEnd={postsEnd} />
-
-			{/* {postsEnd && 'You have reached the end!'} */}
 			<div className="spacer-m"></div>
-
-			<Footer />
+			{/* <Footer /> */}
 		</div>
-		// </Conatiner>
 	)
 }
