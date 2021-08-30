@@ -29,6 +29,20 @@ export default function Footer() {
 					<p className={styles.subscribe}>SUBSCRIBE</p>
 					<p className={styles.copyright}>&#169; 2021</p>
 				</div>
+				<div className={styles['bottom-links']}>
+					<Link href="/blogs">
+						<a>Blogs</a>
+					</Link>
+					<Link href="/aboutus">
+						<a>About Us</a>
+					</Link>
+					<Link href="/ourteam">
+						<a>Our Team</a>
+					</Link>
+					<Link href="/email">
+						<a>Email Us</a>
+					</Link>
+				</div>
 				<div className={styles.right}>
 					<Link href="/ourteam">
 						<a>Our Team</a>

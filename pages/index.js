@@ -52,7 +52,7 @@ export default function Home(props) {
 			<PostFeed posts={posts} />
 			<LoadMore getMorePosts={getMorePosts} loading={loading} postsEnd={postsEnd} />
 			<div className="spacer-m"></div>
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	)
 }
