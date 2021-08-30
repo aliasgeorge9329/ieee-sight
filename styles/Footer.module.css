@@ -81,7 +81,16 @@
 }
 
 .subscribe {
+	all: unset;
+	margin-top: 0.5rem;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
 	font-size: 1.25rem;
+}
+
+.subscribe:hover {
+	background-color: var(--primary-color);
 }
 
 .copyright {

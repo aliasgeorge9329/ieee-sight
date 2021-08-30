@@ -26,7 +26,7 @@ export default function Footer() {
 					</div>
 					<p className={styles.newsletter}>NEWSLETTER</p>
 					<p className={styles.email}>name@example.com</p>
-					<p className={styles.subscribe}>SUBSCRIBE</p>
+					<button className={styles.subscribe}>SUBSCRIBE</button>
 					<p className={styles.copyright}>&#169; 2021</p>
 				</div>
 				<div className={styles['bottom-links']}>
