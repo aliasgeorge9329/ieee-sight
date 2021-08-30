@@ -10,7 +10,7 @@ function Navbar() {
 	return (
 		<nav className={styles['navbar'] + ' margin'}>
 			<HamMenu />
-			<div className={styles['logo-wrapper']}>Interface</div>
+			<Link href={'/'} passHref><div className={styles['logo-wrapper']}>Interface</div></Link>
 
 			<div className={styles['nav-links-wrapper']}>
 				<ul>

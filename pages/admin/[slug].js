@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
@@ -7,13 +6,7 @@ import AuthCheck from "../../components/AuthCheck";
 import { auth, firestore, serverTimestamp, storage } from "../../lib/firebase";
 import dynamic from 'next/dynamic';
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
-import { Button } from '../../styles/GlobalComponentSTyles/ComponentStyles';
 
-const FormDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-`
 
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -139,15 +132,15 @@ function PostForm({ defaultValues, postRef }) {
 
     return (
         <form onSubmit={handleSubmit(updatePost)} >
-            <FormDiv>
+            <div>
                 <ReactQuill modules={modules} handlers={PostForm.handlerOptions} onChange={(e) => { setArticle(e) }}
                         value={article} />
                 <fieldset>
                     <input type="checkbox" {...register("published")} />
                     <label>Publish?</label>
                 </fieldset>
-                <Button type="submit">Update Changes</Button>
-            </FormDiv>
+                <button type="submit">Update Changes</button>
+            </div>
         </form >
     );
 

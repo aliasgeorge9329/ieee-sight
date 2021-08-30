@@ -1,5 +1,5 @@
 import { firestore, getUserWithUsername, postToJSON  } from "../../lib/firebase";
-import PostContent from '../../components/PostContent/PostContent';
+import PostContent from '../../components/PostContent';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 
 //Incremental Static Regeneration
