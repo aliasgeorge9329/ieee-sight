@@ -10,11 +10,11 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
-			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"></link>
-			<script src="https://code.iconify.design/2/2.0.3/iconify.min.js" defer></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" crossOrigin="anonymous" />
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" crossOrigin="anonymous" />
+            <script src="https://code.iconify.design/2/2.0.3/iconify.min.js" defer></script>
         </Head>
         <body>
           <Main />
