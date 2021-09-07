@@ -2,7 +2,7 @@
 	--primary-color: rgb(24, 24, 24);
 	--text-color: rgba(255, 255, 255, 0.8);
 	--border-color: rgba(255, 255, 255, 0.2);
-	--bg-color: rgba(5, 5, 5);
+	--bg-color: black;
 	--max-width: 1470px;
 	--nav-height: 70px;
 }

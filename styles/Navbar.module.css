@@ -1,7 +1,7 @@
 .navbar {
 	width: 100vw;
 	height: var(--nav-height);
-	backdrop-filter: blur(13px);
+	backdrop-filter: blur(1px);
 	position: fixed;
 	left: 0;
 	top: 0;

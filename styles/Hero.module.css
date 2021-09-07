@@ -9,9 +9,9 @@
 
 .bg-image {
 	position: absolute;
-	top: -20%;
-	right: -10%;
-	background-image: url('/Hero.png');
+	top: -10%;
+	right: 5%;
+	background-image: url('/Hero.jpeg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
