@@ -10,13 +10,14 @@ export default function Enter(props) {
     
     return ( 
         <>
+             <div className={styles['sign-in-btn']}>
             {
                 user ? 
                     !username ? <UsernameForm /> : <SignOutButton />
                     :
                     <SignInButton />
             }
-            
+            </div>
         </>
     );
 }
@@ -27,10 +28,10 @@ function SignInButton(){
     };
 
     return(
-        <div className={styles['sign-in-btn']}>
+       
 
             <button onClick= {signInWithGoogle}>Sign in with Google</button>
-        </div>
+        
     );
 }
 
