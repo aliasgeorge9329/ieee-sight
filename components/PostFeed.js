@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import styles from '../styles/PostItem.module.css'
+import  Like  from './Like';
+import  Comment  from './Comment';
+import  Share  from './Share';
 
 //Admin props for editing the post authored by the currently logged in user
 export default function PostFeed({ posts, admin }) {
@@ -32,7 +35,12 @@ function PostItem({ post, admin = false }) {
 				</Link>
 				<p className={styles['post-info']}>
 					{wordCount} word{wordCount > 1 ? 's' : ''} — {minutesToRead} min read
+					
 				</p>
+				<div className = {styles['icons']}>
+					<Like/> <Comment/> <Share/>
+				</div>
+				
 			</div>
 		</div>
 	)

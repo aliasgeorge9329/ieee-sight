@@ -3,6 +3,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { UserContext } from "../lib/authContext";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/dist/client/router";
+import styles from "../styles/Auth.module.css"
 
 export default function Enter(props) {
     const { user , username } = useContext(UserContext);
@@ -26,7 +27,10 @@ function SignInButton(){
     };
 
     return(
-        <button onClick= {signInWithGoogle}>Sign in with Google</button>
+        <div className={styles['sign-in-btn']}>
+
+            <button onClick= {signInWithGoogle}>Sign in with Google</button>
+        </div>
     );
 }
 
