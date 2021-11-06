@@ -10,7 +10,7 @@ export default function Enter(props) {
     
     return ( 
         <>
-             <div className={styles['sign-in-btn']}>
+             <div className={styles['login-form']}>
             {
                 user ? 
                     !username ? <UsernameForm /> : <SignOutButton />

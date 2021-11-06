@@ -1,8 +1,5 @@
-import Link from 'next/link'
+import PostItem from "./PostItem";
 import styles from '../styles/PostItem.module.css'
-import  Like  from './Like';
-import  Comment  from './Comment';
-import  Share  from './Share';
 
 //Admin props for editing the post authored by the currently logged in user
 export default function PostFeed({ posts, admin }) {
@@ -15,6 +12,7 @@ export default function PostFeed({ posts, admin }) {
 		</section>
 	)
 }
+/*
 
 function PostItem({ post, admin = false }) {
 	//Show the word count in post card.
@@ -45,3 +43,4 @@ function PostItem({ post, admin = false }) {
 		</div>
 	)
 }
+*/
