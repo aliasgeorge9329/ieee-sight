@@ -8,18 +8,27 @@ export async function getStaticProps({ params }){
     const { username, slug } = params;
     const userDoc = await getUserWithUsername(username);
 
+    let posts;
     let post;
     let path;
+    let user;
 
     if(userDoc){
         const postRef = userDoc.ref.collection('posts').doc(slug);
         post = postToJSON(await postRef.get());
 
         path = postRef.path; //To refect data from client side to rehydrate the content in realtime
+    
+        // Getting posts also to display on suggestions
+        user = userDoc.data();
+		const postsQuery = userDoc.ref.collection('posts').where('published', '==', true).orderBy('createdAt', 'desc').limit(3);
+
+		posts = (await postsQuery.get()).docs.map(postToJSON);
+    
     }
 
     return{
-        props: { post, path },
+        props: { post, path, posts, user },
         revalidate:  5000,
     };
 }
@@ -49,11 +58,13 @@ const Post = (props) => {
     const postRef = firestore.doc(props.path);
     const [realtimePost] = useDocumentData(postRef); //Gets a feed of the data in realtime
 
+    
     const post = realtimePost || props.post;
+    const posts = props.posts;
     return ( 
         <div>
             <section>
-                <PostContent post={post} />
+                <PostContent post={post} posts = {posts} />
             </section>
             <aside style={{float: "right"}}>
                 <p>{ post.heartCount || 0 } 👏🏻</p>

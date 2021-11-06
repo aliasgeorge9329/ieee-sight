@@ -1,19 +1,19 @@
-.posts-section {
+.comments-section {
 	max-width: var(--max-width);
 	margin: 0 auto;
 }
 
-.posts-container {
+.comments-container {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.post-container {
+.comment-container {
 	min-width: 33.33%;
 	/* flex: 1; */
 }
 
-.post-wrapper {
+.comment-wrapper {
 	margin: 1.5rem 1rem;
 	border-radius: 1rem;
 }
@@ -21,36 +21,37 @@
 
 
 .icons{
-	display: grid;
-	grid-template-columns: 33.33% 33.33% 33.33%;
-	margin: 1.5rem 1rem 1rem 1rem;
+	display: inline-grid;
+	grid-auto-flow: column;
+	grid-gap: 8.5rem;
+	margin: 1rem 1rem;
 	font-size: 2rem;
-	
+	text-align: center;
 
 }
 
 
 @media (max-width: 1000px) {
-	.post-container {
+	.comment-container {
 		min-width: 50%;
 	}
 
-	.post-container:nth-child(odd) .post-wrapper {
+	.comment-container:nth-child(odd) .comment-wrapper {
 		margin: 1.5rem 0;
 		margin-right: 0.75rem;
 	}
-	.post-container:nth-child(even) .post-wrapper {
+	.comment-container:nth-child(even) .comment-wrapper {
 		margin: 1.5rem 0;
 		margin-left: 0.75rem;
 	}
 }
 @media (max-width: 600px) {
-	.post-container {
+	.comment-container {
 		min-width: 100%;
 	}
 
-	.post-container:nth-child(even) .post-wrapper,
-	.post-container:nth-child(odd) .post-wrapper {
+	.comment-container:nth-child(even) .comment-wrapper,
+	.comment-container:nth-child(odd) .comment-wrapper {
 		margin: 1.5rem 0;
 	}
 }
@@ -60,7 +61,7 @@
 		padding: 0 1rem;
 	}
 
-	.post-wrapper {
+	.comment-wrapper {
 		margin: 1rem 0;
 	}
 }
@@ -92,7 +93,7 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-.post-info {
+.comment-info {
 	font-family: 'Inter', sans-serif;
 	font-size: 0.9rem;
 }

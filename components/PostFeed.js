@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import PostItem from "./PostItem";
 import styles from '../styles/PostItem.module.css'
 
 //Admin props for editing the post authored by the currently logged in user
@@ -12,6 +12,7 @@ export default function PostFeed({ posts, admin }) {
 		</section>
 	)
 }
+/*
 
 function PostItem({ post, admin = false }) {
 	//Show the word count in post card.
@@ -32,8 +33,14 @@ function PostItem({ post, admin = false }) {
 				</Link>
 				<p className={styles['post-info']}>
 					{wordCount} word{wordCount > 1 ? 's' : ''} — {minutesToRead} min read
+					
 				</p>
+				<div className = {styles['icons']}>
+					<Like/> <Comment/> <Share/>
+				</div>
+				
 			</div>
 		</div>
 	)
 }
+*/

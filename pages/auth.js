@@ -3,19 +3,21 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { UserContext } from "../lib/authContext";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/dist/client/router";
+import styles from "../styles/Auth.module.css"
 
 export default function Enter(props) {
     const { user , username } = useContext(UserContext);
     
     return ( 
         <>
+             <div className={styles['login-form']}>
             {
                 user ? 
                     !username ? <UsernameForm /> : <SignOutButton />
                     :
                     <SignInButton />
             }
-            
+            </div>
         </>
     );
 }
@@ -26,7 +28,10 @@ function SignInButton(){
     };
 
     return(
-        <button onClick= {signInWithGoogle}>Sign in with Google</button>
+       
+
+            <button onClick= {signInWithGoogle}>Sign in with Google</button>
+        
     );
 }
 
