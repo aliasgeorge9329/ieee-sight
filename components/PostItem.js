@@ -38,7 +38,7 @@ function PostItem({ post, admin = false }) {
 				</Link>
 				
 				<div className = {styles['icons']}>
-					<Like  clicked = {LikeClicked}  /> <Comment/> <Share/>
+					<div onClick={invert}>	<Like  clicked = {LikeClicked}  />  </div> <Comment/> <Share/>
 				</div>
 				
 			</div>

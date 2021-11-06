@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.bubble.css';
 import CommentItem from './CommentItem';
 
 // extras
+import React ,{useState} from 'react';
 import styles from '../styles/PostContent.module.css'
 import  Like  from './Like';
 import  Comment  from './Comment';
@@ -17,6 +18,16 @@ let sample_comments = [{username :"john123",content : "This is such an insightfu
 
 const PostContent = ({ post, posts }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
+
+
+
+	//clicked variable to handle like and unlike
+	const [LikeClicked, LikeClickedFn] = useState(false);
+	let invert = ()=>{
+		LikeClickedFn(!LikeClicked);
+		console.log(LikeClicked);
+		
+	}
 
     return (
 		<div className={styles['posts-section']}>
@@ -44,7 +55,7 @@ const PostContent = ({ post, posts }) => {
 
 				</div>
 				<div className = {styles['icons']}>
-					<Like clicked = {true}  /> <Share/> <InfoDots/>
+					<div onClick={invert}>	<Like  clicked = {LikeClicked}  /> </div> <Share/> <InfoDots/>
 				</div>
 				
 				<div className= {styles['content']}>
