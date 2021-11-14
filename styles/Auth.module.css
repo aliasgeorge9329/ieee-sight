@@ -1,6 +1,14 @@
 .login-form{
 
-    margin-top: 25rem;
-    margin-left: 50rem;
+    margin: 30% 35% 30% 45%; /*top right bottom left*/
     
+}
+.sign-in-with-google{
+    margin: 1rem 1rem 1rem 1rem;
+}
+@media (max-width: 1000px){
+    .login-form{
+        margin: 50% 30% 30% 30%; /*top right bottom left*/
+
+    }
 }

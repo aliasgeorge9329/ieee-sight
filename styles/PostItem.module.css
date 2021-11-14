@@ -90,6 +90,7 @@
 	font-size: 1.5rem;
 	font-weight: 500;
 	font-family: 'Poppins', sans-serif;
+	word-wrap: break-word;
 }
 
 .post-info {

@@ -29,9 +29,9 @@ function SignInButton(){
 
     return(
        
-
+        <div className={styles["sign-in-with-google"]}>
             <button onClick= {signInWithGoogle}>Sign in with Google</button>
-        
+        </div>
     );
 }
 
