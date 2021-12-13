@@ -1,12 +1,10 @@
 import { auth , firestore, getUserWithUsername, postToJSON  } from "../../lib/firebase";
 import PostContent from '../../components/PostContent';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
-import AlreadyLiked from '../../components/AlreadyLiked';
-import firebase from 'firebase/app';
-import  "firebase/auth";
-import firebase from "firebase/app";
-import { useContext, useState } from 'react'
-import { UserContext } from '../../lib/authContext'
+import LikeButton from '../../components/LikeButton';
+import AuthCheck from '../../components/AuthCheck';
+import Link from "next/dist/client/link";
+import CommentItem from '../../components/CommentItem';
 //Incremental Static Regeneration
 
 export async function getStaticProps({ params }){
@@ -68,7 +66,7 @@ const Post = (props) => {
     const [realtimePost] = useDocumentData(postRef); //Gets a feed of the data in realtime
 
     
-    debugger
+    
     const post = realtimePost || props.post;
     const posts = props.posts;
     
@@ -80,13 +78,22 @@ const Post = (props) => {
             <section>
                 <PostContent post={post} posts = {posts} postRef = {postRef} />
             </section>
-            <aside style={{float: "right"}}>
-                <p>{ post.heartCount || 0 } 👏🏻</p>
-            </aside>
         </div>
     );
 }
- 
+
+/*
+<aside style={{float: "center"}}>
+<p>{ post.likeCount || 0 }</p>
+    <AuthCheck
+     fallback={
+         <Link href="/auth" passHref>
+             <button>Login in Like</button>
+         </Link>
+     }>
+         <LikeButton postRef={postRef} />
+    </AuthCheck>
+</aside>*/
 export default Post;
 
 

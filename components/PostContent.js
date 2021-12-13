@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.bubble.css';
@@ -8,16 +8,19 @@ import CommentItem from './CommentItem';
 import React ,{useEffect, useState} from 'react';
 import styles from '../styles/PostContent.module.css'
 import  Like  from './Like';
-import  Comment  from './Comment';
 import  Share  from './Share';
 import  InfoDots  from './InfoDots';
 import PostItem from './PostItem';
-import LinkLikeCount from './HandleLike';
-import {auth} from '../lib/firebase'
+
+
+import LikeButton from './LikeButton';
+import LikeAuthCheck from './LikeAuthCheck';
+import Link from "next/dist/client/link";
+
 // sample dummy comment
 let sample_comments = [{username :"john123",content : "This is such an insightful post!" }, {username :"Joe11",content : "Wonderful, keep up the great work." }]
 
-const PostContent = ({ post, posts , postRef}) => {
+const PostContent = ({ post, posts, postRef }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
 
 	
@@ -27,10 +30,7 @@ const PostContent = ({ post, posts , postRef}) => {
 	const [LikeClicked, LikeClickedFn] = useState(false);
 	//console.log(LikeClicked);
 
-	useEffect(() => {
-		LinkLikeCount(postRef, LikeClicked)
-	},[LikeClicked])
-
+	
 	let invert = ()=>{
 		LikeClickedFn(!LikeClicked);
 		console.log(LikeClicked);
@@ -63,7 +63,7 @@ const PostContent = ({ post, posts , postRef}) => {
 
 				</div>
 				<div className = {styles['icons']}>
-					<div onClick={invert}>	<Like  clicked = {LikeClicked}  /> </div> <Share/> <InfoDots/>
+					<div  >	<LikeAuthCheck><LikeButton postRef={postRef}/></LikeAuthCheck></div> <Share/> <InfoDots/>
 				</div>
 				
 				<div className= {styles['content']}>
