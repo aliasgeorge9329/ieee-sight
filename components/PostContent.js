@@ -63,7 +63,7 @@ const PostContent = ({ post, posts, postRef }) => {
 
 				</div>
 				<div className = {styles['icons']}>
-					<div  >	<LikeAuthCheck><LikeButton postRef={postRef}/></LikeAuthCheck></div> <Share/> <InfoDots/>
+					<div  >	<LikeAuthCheck><LikeButton postRef={postRef}/></LikeAuthCheck> </div> <div>{post.likeCount}</div><Share/> <InfoDots/>
 				</div>
 				
 				<div className= {styles['content']}>
@@ -74,9 +74,15 @@ const PostContent = ({ post, posts, postRef }) => {
 
 				<div className={styles['comments']}>
 					<h3>Comments</h3>
+					<div>
+						<label><h6>Add a comment</h6></label>
+						<input type="text" placeholder="Add a comment" />
+						<button type='submit'>Add</button>
+					</div>
 					<div>{sample_comments ? sample_comments.map((comment) => <CommentItem comment={comment}  />) : null}</div>
 
 				</div>
+
 
 			</div>
 
@@ -106,7 +112,7 @@ const PostContent = ({ post, posts, postRef }) => {
         */
     );
 }
-
+// comments need : uid, username, content, createdAt,  
 export default PostContent;
 
 

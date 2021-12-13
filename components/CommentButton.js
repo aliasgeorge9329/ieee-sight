@@ -2,22 +2,29 @@ import { firestore, auth, increment } from '../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
 
-export default function Like({ postRef }) {
-    const likeRef = postRef.collection('likes').doc(auth.currentUser.uid);
+export default function Comment({ postRef, text }) {
+
+
+    const likeRef = postRef.collection('comments').doc()
     const [likeDoc] = useDocument(likeRef);
 
 
-    const like = async () => {
+    const addComment = async () => {
         const uid = auth.currentUser.uid;
         const batch = firestore.batch();
 
-        batch.update(postRef, { likeCount: increment(1) });
+        batch.update(postRef.collection('comments').doc(), 
+        { 
+            uid: uid,
+            content: text,
+            createdAt: new Date(),
+        });
         batch.set(likeRef, { uid });
         
         await batch.commit();
     }
 
-    const unlike = async () => {
+    const deleteComment = async () => {
         const batch = firestore.batch();
 
         batch.update(postRef, { likeCount: increment(-1) });

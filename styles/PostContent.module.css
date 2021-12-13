@@ -77,8 +77,8 @@
 
 .icons{
 	display: inline-grid;
-	grid-template-columns: 33.33% 33.33% 33.33%;
-	grid-gap: 170%;
+	grid-template-columns: 33.33% 13.33% 33.33% 23.33%;
+	grid-gap: 70%;
 	word-wrap: break-word;
 	margin: 1rem 1rem;
 	font-size: 1.7rem;
