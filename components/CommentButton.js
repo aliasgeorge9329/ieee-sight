@@ -1,5 +1,6 @@
 import { firestore, auth, increment } from '../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
+import { add } from 'lodash';
 
 
 export default function Comment({postRef, rerender}) {
@@ -16,6 +17,8 @@ export default function Comment({postRef, rerender}) {
         const content = document.getElementById('comment-box').value
         if (content.length!=0)
         {
+            const addCommentButton = document.getElementById('add-comment-button')
+            addCommentButton.disabled = true
             const userDoc  = await userRef.get()
             const batch = firestore.batch();
 
@@ -30,6 +33,7 @@ export default function Comment({postRef, rerender}) {
             //batch.set(commentRef, { uid });
             
             await batch.commit();
+            addCommentButton.disabled = false
             rerender.setRerender(!rerender.rerender)
         }
         
@@ -37,7 +41,7 @@ export default function Comment({postRef, rerender}) {
 
 
     return(
-        <button onClick={(e)=>{addComment()}}>Add Comment</button>
+        <button id ='add-comment-button'onClick={(e)=>{addComment()}}>Add Comment</button>
     )
 
     /*
