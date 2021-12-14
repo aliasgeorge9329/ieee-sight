@@ -2,7 +2,7 @@ import { firestore, auth, increment } from '../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
 
 
-export default function Comment({postRef}) {
+export default function Comment({postRef, rerender}) {
     
     
     const uid = auth.currentUser.uid;
@@ -30,6 +30,7 @@ export default function Comment({postRef}) {
             //batch.set(commentRef, { uid });
             
             await batch.commit();
+            rerender.setRerender(!rerender.rerender)
         }
         
     }

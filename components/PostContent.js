@@ -30,8 +30,8 @@ let allComments = []
 
 const PostContent = ({ post, posts, postRef }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
-	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments'))
-
+	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments').orderBy('createdAt'))
+	const [rerender, setRerender] = useState(false)
 	useEffect(()=>{
 		if (comments)
 		{
@@ -50,7 +50,7 @@ const PostContent = ({ post, posts, postRef }) => {
 				
 			})
 		}	
-	}, [comments])
+	}, [comments, rerender])
 	
 	
 	 
@@ -95,9 +95,9 @@ const PostContent = ({ post, posts, postRef }) => {
 					<div>
 						<label><h6>Add a comment</h6></label>
 						<input id="comment-box" type="text" placeholder="Add a comment" />
-						<CommentAuthCheck> <CommentButton postRef={postRef} /> </CommentAuthCheck>
+						<CommentAuthCheck> <CommentButton postRef={postRef} rerender = {{rerender :rerender ,setRerender: setRerender}}/> </CommentAuthCheck>
 					</div>
-					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}/>) : `` }</div>
+					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}  rerender = {{rerender :rerender ,setRerender: setRerender}}/>): `` }</div>
 
 				</div>
 
