@@ -16,12 +16,12 @@ function DeleteComment({comment, postRef})
 	}
 	return (
 	
-	<div onClick={(e)=>{
+	<div onClick={ (e)=>{
 		
 		console.log("going to delete comment")
-		del()
 		const currentComment = document.getElementById(comment.commentId)
 		currentComment.parentNode.removeChild(currentComment)
+		del()
 		
 
 	}}> <AiOutlineDelete/> </div>

@@ -14,9 +14,9 @@ export default function Comment({postRef}) {
     
     const addComment = async () => {
         const content = document.getElementById('comment-box').value
-        const userDoc  = await userRef.get()
         if (content.length!=0)
         {
+            const userDoc  = await userRef.get()
             const batch = firestore.batch();
 
             batch.set(postRef.collection('comments').doc(), 

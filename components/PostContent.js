@@ -31,10 +31,11 @@ let allComments = []
 const PostContent = ({ post, posts, postRef }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
 	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments'))
-	
+
 	useEffect(()=>{
 		if (comments)
 		{
+			allComments = []
 			comments.forEach((doc)=>{
 				const commentData = doc.data()
 				allComments.push(
@@ -96,7 +97,7 @@ const PostContent = ({ post, posts, postRef }) => {
 						<input id="comment-box" type="text" placeholder="Add a comment" />
 						<CommentAuthCheck> <CommentButton postRef={postRef} /> </CommentAuthCheck>
 					</div>
-					<div>{allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}/>) : null}</div>
+					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}/>) : `` }</div>
 
 				</div>
 
