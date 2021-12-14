@@ -21,6 +21,7 @@ import Link from "next/dist/client/link";
 
 import CommentButton from "./CommentButton"
 import { useCollection } from 'react-firebase-hooks/firestore';
+
 // sample dummy comment
 let sample_comments = [{username :"john123",content : "This is such an insightful post!" }, {username :"Joe11",content : "Wonderful, keep up the great work." }]
 
@@ -39,9 +40,13 @@ const PostContent = ({ post, posts, postRef }) => {
 				allComments.push(
 					{
 						username : commentData.username,
-						content : commentData.content
+						content : commentData.content,
+						uid : commentData.uid,
+						commentId : doc.id
+						
 					}
 				)
+				
 			})
 		}	
 	}, [comments])
@@ -91,7 +96,7 @@ const PostContent = ({ post, posts, postRef }) => {
 						<input id="comment-box" type="text" placeholder="Add a comment" />
 						<CommentAuthCheck> <CommentButton postRef={postRef} /> </CommentAuthCheck>
 					</div>
-					<div>{allComments ? allComments.map((comment) => <CommentItem comment={comment}  />) : null}</div>
+					<div>{allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}/>) : null}</div>
 
 				</div>
 

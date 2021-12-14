@@ -1,7 +1,30 @@
 
 import Link from 'next/link';
 import styles from '../styles/CommentItem.module.css'
-function CommentItem({ comment }) {
+import {firestore, auth} from '../lib/firebase'
+import {AiOutlineDelete} from 'react-icons/ai'
+
+function DeleteComment({comment, postRef})
+{
+	const del = async ()=>{
+		const batch = firestore.batch();
+
+        batch.delete(postRef.collection('comments').doc(comment.commentId));
+
+        await batch.commit();
+
+	}
+	return (
+	
+	<div onClick={(e)=>{
+		
+		console.log("going to delete comment")
+		del()
+	}}> <AiOutlineDelete/> </div>
+	)
+}
+function CommentItem({ comment, postRef }) {
+	const uid = auth.currentUser? auth.currentUser.uid:null
 	return (
 		<div className={styles['comment-container']}>
 			<div className={styles['comment-wrapper']}>
@@ -9,6 +32,7 @@ function CommentItem({ comment }) {
 				<Link href={`/${comment.username}`} passHref>
 					<a className={styles['author']}>@{comment.username}</a>
 				</Link>
+					<div >{(uid===comment.uid)? <DeleteComment comment = {comment} postRef={postRef}/>:``}</div>
 				<p className={styles['comment-content']}>{comment.content}</p>
 			</div>
 		</div>

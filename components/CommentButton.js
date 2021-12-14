@@ -25,6 +25,7 @@ export default function Comment({postRef}) {
                 uid: uid,
                 content: content,
                 createdAt: new Date(),
+             
             });
             //batch.set(commentRef, { uid });
             
