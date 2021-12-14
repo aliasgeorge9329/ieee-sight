@@ -15,27 +15,39 @@ import PostItem from './PostItem';
 
 import LikeButton from './LikeButton';
 import LikeAuthCheck from './LikeAuthCheck';
+import CommentAuthCheck from './CommentAuthCheck'
 import Link from "next/dist/client/link";
 
+
+import CommentButton from "./CommentButton"
+import { useCollection } from 'react-firebase-hooks/firestore';
 // sample dummy comment
 let sample_comments = [{username :"john123",content : "This is such an insightful post!" }, {username :"Joe11",content : "Wonderful, keep up the great work." }]
 
+let allComments = []
+
+
 const PostContent = ({ post, posts, postRef }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
-
+	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments'))
 	
-
-	//clicked variable to handle like and unlike
-	// pass true or false according to the state of the like button depeing on the currentUser
-	const [LikeClicked, LikeClickedFn] = useState(false);
-	//console.log(LikeClicked);
-
+	useEffect(()=>{
+		if (comments)
+		{
+			comments.forEach((doc)=>{
+				const commentData = doc.data()
+				allComments.push(
+					{
+						username : commentData.username,
+						content : commentData.content
+					}
+				)
+			})
+		}	
+	}, [comments])
 	
-	let invert = ()=>{
-		LikeClickedFn(!LikeClicked);
-		console.log(LikeClicked);
-		
-	}
+	
+	 
 
     return (
 		<div className={styles['posts-section']}>
@@ -76,10 +88,10 @@ const PostContent = ({ post, posts, postRef }) => {
 					<h3>Comments</h3>
 					<div>
 						<label><h6>Add a comment</h6></label>
-						<input type="text" placeholder="Add a comment" />
-						<button type='submit'>Add</button>
+						<input id="comment-box" type="text" placeholder="Add a comment" />
+						<CommentAuthCheck> <CommentButton postRef={postRef} /> </CommentAuthCheck>
 					</div>
-					<div>{sample_comments ? sample_comments.map((comment) => <CommentItem comment={comment}  />) : null}</div>
+					<div>{allComments ? allComments.map((comment) => <CommentItem comment={comment}  />) : null}</div>
 
 				</div>
 

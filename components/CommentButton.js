@@ -1,29 +1,44 @@
 import { firestore, auth, increment } from '../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
-import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
-
-export default function Comment({ postRef, text }) {
 
 
-    const likeRef = postRef.collection('comments').doc()
-    const [likeDoc] = useDocument(likeRef);
-
-
+export default function Comment({postRef}) {
+    
+    
+    const uid = auth.currentUser.uid;
+    const username = auth.currentUser.username
+    const commentRef = postRef.collection('comments').doc()
+    const userRef = firestore.collection('users').doc(uid)
+    //const [commentDoc] = useDocument(commentRef);
+    
+    
     const addComment = async () => {
-        const uid = auth.currentUser.uid;
-        const batch = firestore.batch();
+        const content = document.getElementById('comment-box').value
+        const userDoc  = await userRef.get()
+        if (content.length!=0)
+        {
+            const batch = firestore.batch();
 
-        batch.update(postRef.collection('comments').doc(), 
-        { 
-            uid: uid,
-            content: text,
-            createdAt: new Date(),
-        });
-        batch.set(likeRef, { uid });
+            batch.set(postRef.collection('comments').doc(), 
+            { 
+                username :  userDoc.data().username,
+                uid: uid,
+                content: content,
+                createdAt: new Date(),
+            });
+            //batch.set(commentRef, { uid });
+            
+            await batch.commit();
+        }
         
-        await batch.commit();
     }
 
+
+    return(
+        <button onClick={(e)=>{addComment()}}>Add Comment</button>
+    )
+
+    /*
     const deleteComment = async () => {
         const batch = firestore.batch();
 
@@ -38,5 +53,7 @@ export default function Comment({ postRef, text }) {
         ) : (
         <div onClick={like}><AiOutlineLike />  </div>
     );
+    */
+   
     
 }

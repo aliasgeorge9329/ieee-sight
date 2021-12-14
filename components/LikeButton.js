@@ -12,7 +12,7 @@ export default function Like({ postRef }) {
         const batch = firestore.batch();
 
         batch.update(postRef, { likeCount: increment(1) });
-        batch.set(likeRef, { uid });
+        batch.set(likeRef, { uid :uid });
         
         await batch.commit();
     }
@@ -26,7 +26,7 @@ export default function Like({ postRef }) {
         await batch.commit();
     };
 
-    return likeDoc?.exists ? (
+    return likeDoc?.exists? (
         <div onClick={unlike}><AiFillLike /> </div> 
         ) : (
         <div onClick={like}><AiOutlineLike />  </div>
