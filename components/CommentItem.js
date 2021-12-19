@@ -1,14 +1,37 @@
 
 import Link from 'next/link';
 import styles from '../styles/CommentItem.module.css'
-function CommentItem({ comment }) {
+import {firestore, auth} from '../lib/firebase'
+import {AiOutlineDelete} from 'react-icons/ai'
+
+function DeleteComment({comment, postRef, rerender})
+{
+	const del = async (e)=>{
+		e.currentTarget.onClick = () => {return}
+		//const currentComment = document.getElementById(comment.commentId)
+		//currentComment.parentNode.removeChild(currentComment)
+		const batch = firestore.batch();
+        batch.delete(postRef.collection('comments').doc(comment.commentId));
+		console.log("going to delete comment")
+        await batch.commit();
+		rerender.setRerender(!rerender.rerender)
+
+	}
 	return (
-		<div className={styles['comment-container']}>
+	
+	<div onClick={del}> <AiOutlineDelete/> </div>
+	)
+}
+function CommentItem({ comment, postRef , rerender}) {
+	const uid = auth.currentUser? auth.currentUser.uid:null
+	return (
+		<div id = {comment.commentId} className={styles['comment-container']}>
 			<div className={styles['comment-wrapper']}>
 
 				<Link href={`/${comment.username}`} passHref>
 					<a className={styles['author']}>@{comment.username}</a>
 				</Link>
+				<div >{(uid===comment.uid)? <DeleteComment comment = {comment} postRef={postRef} rerender ={rerender}/>:``}</div>
 				<p className={styles['comment-content']}>{comment.content}</p>
 			</div>
 		</div>
