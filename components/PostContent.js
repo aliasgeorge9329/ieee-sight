@@ -7,23 +7,44 @@ import CommentItem from './CommentItem';
 // extras
 import React ,{useEffect, useState} from 'react';
 import styles from '../styles/PostContent.module.css'
-import  Like  from './Like';
 import  Share  from './Share';
 import  InfoDots  from './InfoDots';
 import PostItem from './PostItem';
 
 
 import LikeButton from './LikeButton';
-import LikeAuthCheck from './LikeAuthCheck';
-import CommentAuthCheck from './CommentAuthCheck'
+import AuthCheck from './AuthCheck';
 import Link from "next/dist/client/link";
 
+import { AiOutlineLike } from 'react-icons/ai';
 
 import CommentButton from "./CommentButton"
 import { useCollection } from 'react-firebase-hooks/firestore';
 
 // sample dummy comment
 let sample_comments = [{username :"john123",content : "This is such an insightful post!" }, {username :"Joe11",content : "Wonderful, keep up the great work." }]
+function removeElementsByClass(className){
+    className = styles[className]
+	var elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
+const displayLoginPrompt= (e ,text) => {
+	
+	removeElementsByClass('please-login-container')
+	const mainDiv = document.getElementById('main-container')
+	const newSubDiv = document.createElement("div");
+	newSubDiv.className = styles['please-login-container']
+	newSubDiv.innerHTML = `<a href="/auth"> <button>${text}</button></a>`
+	mainDiv.appendChild(newSubDiv)
+	
+	
+	//const target = `<div className={styles['signup-container']}><Link href="/auth">Please Sign In</Link></div>`
+	//debugger
+}
+
 
 let allComments = []
 
@@ -56,7 +77,7 @@ const PostContent = ({ post, posts, postRef }) => {
 	 
 
     return (
-		<div className={styles['posts-section']}>
+		<div id = 'main-container'className={styles['posts-section']}>
 			<div className={styles['posts-container']}>
 
 				<div className={styles["heading"]}>
@@ -81,7 +102,14 @@ const PostContent = ({ post, posts, postRef }) => {
 
 				</div>
 				<div className = {styles['icons']}>
-					<div  >	<LikeAuthCheck><LikeButton postRef={postRef}/></LikeAuthCheck> </div> <div>{post.likeCount}</div><Share/> <InfoDots/>
+					<div  >	<AuthCheck
+							fallback={
+								<div onClick={(e)=>{
+									displayLoginPrompt(e,"Please login to Like")
+								}}><AiOutlineLike />  </div>
+							}>
+						<LikeButton postRef={postRef}/>
+						</AuthCheck> </div> <div>{post.likeCount}</div><Share/> <InfoDots/>
 				</div>
 				
 				<div className= {styles['content']}>
@@ -95,7 +123,13 @@ const PostContent = ({ post, posts, postRef }) => {
 					<div>
 						<label><h6>Add a comment</h6></label>
 						<input id="comment-box" type="text" placeholder="Add a comment" />
-						<CommentAuthCheck> <CommentButton postRef={postRef} rerender = {{rerender :rerender ,setRerender: setRerender}}/> </CommentAuthCheck>
+						<AuthCheck
+							fallback={
+								
+								<div onClick={(e)=>{
+									displayLoginPrompt(e,"Please login to Comment")
+								}}> <button id ='add-comment-button'>Add Comment</button>  </div>
+							}> <CommentButton postRef={postRef} rerender = {{rerender :rerender ,setRerender: setRerender}}/> </AuthCheck>
 					</div>
 					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}  rerender = {{rerender :rerender ,setRerender: setRerender}}/>): `` }</div>
 

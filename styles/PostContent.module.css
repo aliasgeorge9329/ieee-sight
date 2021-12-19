@@ -8,7 +8,18 @@
 		
 	
 }
+.please-login-container{
+    position: fixed;
+    z-index: 1000;
+    width: 250px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px; /* Negative half of height. */
+    margin-left: -125px; /* Negative half of width. */
 
+
+}
 .heading{
     font-size: 4rem;
     text-align: center;
