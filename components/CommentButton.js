@@ -41,7 +41,10 @@ export default function Comment({postRef, rerender}) {
 
 
     return(
-        <button id ='add-comment-button'onClick={(e)=>{addComment()}}>Add Comment</button>
+        <button id ='add-comment-button'onClick={(e)=>{
+            addComment()
+            document.getElementById('comment-box').value = ''
+            }}>Add Comment</button>
     )
 
     /*
