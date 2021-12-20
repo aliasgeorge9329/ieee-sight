@@ -1,7 +1,6 @@
 import React ,{useState} from 'react';
 import styles from '../styles/PostItem.module.css'
-import  Like  from './Like';
-import  Comment  from './Comment';
+import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
 import  Share  from './Share';
 import Link from 'next/link'
 
@@ -17,7 +16,6 @@ function PostItem({ post, admin = false }) {
 	//Show the word count in post card.
 	const wordCount = post?.content.trim().split(/\s+/g).length
 	const minutesToRead = (wordCount / 100 + 1).toFixed(0)
-
 	return (
 		<div className={styles['post-container']}>
 			<div className={styles['post-wrapper']}>
@@ -38,7 +36,8 @@ function PostItem({ post, admin = false }) {
 				</Link>
 				
 				<div className = {styles['icons']}>
-					<div onClick={invert}>	<Like  clicked = {LikeClicked}  />  </div> <Comment/> <Share/>
+				
+					<div > <AiOutlineLike/> {post.likeCount}	 </div>  <Share/>
 				</div>
 				
 			</div>

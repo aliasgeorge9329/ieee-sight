@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../lib/authContext'
 import kebabCase from 'lodash.kebabcase'
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast' 
+import styles from "../../styles/Index.module.css"
 
 const AdminPage = () => {
 	return (
@@ -60,7 +61,7 @@ function CreateNewPost() {
 			content: '# hello world!',
 			createdAt: serverTimestamp(),
 			updatedAt: serverTimestamp(),
-			heartCount: 0,
+			likeCount: 0,
 		}
 
 		await ref.set(data)
@@ -70,11 +71,13 @@ function CreateNewPost() {
 	}
 
 	return (
+		<div className={styles["create-post"]}>
 		<form onSubmit={createPost}>
 			<input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Blog Title" />
 			<button type="submit" disabled={!isValid}>
 				Create Post
 			</button>
 		</form>
+		</div>
 	)
 }
