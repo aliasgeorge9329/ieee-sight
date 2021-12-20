@@ -47,7 +47,7 @@ const displayLoginPrompt= (e ,text) => {
 
 
 let allComments = []
-
+let uid =0
 
 const PostContent = ({ post, posts, postRef }) => {
     const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate();
@@ -131,7 +131,7 @@ const PostContent = ({ post, posts, postRef }) => {
 								}}> <button id ='add-comment-button'>Add Comment</button>  </div>
 							}> <CommentButton postRef={postRef} rerender = {{rerender :rerender ,setRerender: setRerender}}/> </AuthCheck>
 					</div>
-					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem comment={comment}  postRef={postRef}  rerender = {{rerender :rerender ,setRerender: setRerender}}/>): `` }</div>
+					<div id = "all-comments-container">{ allComments ? allComments.map((comment) => <CommentItem key={uid++} comment={comment}  postRef={postRef}  rerender = {{rerender :rerender ,setRerender: setRerender}}/>): `` }</div>
 
 				</div>
 
@@ -140,7 +140,7 @@ const PostContent = ({ post, posts, postRef }) => {
 
 			
 			<div>
-			<div className={styles['cards-container']}>{posts ? posts.map((post) => <PostItem post={post}  />) : null}</div>
+			<div className={styles['cards-container']}>{posts ? posts.map((post) => <PostItem key={uid++} post={post}  />) : null}</div>
 				
 			</div>
 
