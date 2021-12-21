@@ -18,17 +18,11 @@
 	border-radius: 1rem;
 }
 
-
-
-.icons{
-	display: grid;
-	grid-template-columns: 33.33% 33.33% 33.33%;
-	margin: 1.5rem 1rem 1rem 1rem;
-	font-size: 2rem;
-	
-
+.icons {
+	display: flex;
+	align-items: center;
+	font-size: 1.5rem;
 }
-
 
 @media (max-width: 1000px) {
 	.post-container {

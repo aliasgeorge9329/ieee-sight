@@ -31,9 +31,13 @@ export async function getServerSideProps({ query }) {
 
 export default function UserProfilePage({ user, posts }) {
 	return (
-		<>
+		<main className='margin'>
+			<div className='nav-spacer'></div>
+			<div className='spacerv-sm'></div>
 			<UserProfile user={user} />
+			<div className='spacerv-sm'></div>
 			<PostFeed posts={posts} />
-		</>
+			<div className='spacerv-md'></div>
+		</main>
 	)
 }

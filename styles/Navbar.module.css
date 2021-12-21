@@ -1,7 +1,9 @@
 .navbar {
 	width: 100vw;
 	height: var(--nav-height);
-	backdrop-filter: blur(1px);
+	max-width: unset;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
 	position: fixed;
 	left: 0;
 	top: 0;
