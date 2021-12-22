@@ -121,6 +121,11 @@ button.outline:active {
 	}
 }
 
+.blog-margin {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
 /* SPACERS */
 .nav-spacer {
 	height: var(--nav-height);
