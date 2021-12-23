@@ -48,7 +48,7 @@ p {
 }
 
 h2 {
-	font-size: 3rem;
+	font-size: 2.5rem;
 	letter-spacing: -2px;
 	margin-bottom: 1rem;
 	font-family: 'Poppins', sans-serif;
@@ -194,6 +194,9 @@ button.outline:active {
 .space-between {
 	display: flex;
 	justify-content: space-between;
+}
+.wrap {
+	flex-wrap: wrap;
 }
 
 /* MISC */

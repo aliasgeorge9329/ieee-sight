@@ -72,16 +72,4 @@ const Post = (props) => {
 	)
 }
 
-/*
-<aside style={{float: "center"}}>
-<p>{ post.likeCount || 0 }</p>
-    <AuthCheck
-     fallback={
-         <Link href="/auth" passHref>
-             <button>Login in Like</button>
-         </Link>
-     }>
-         <LikeButton postRef={postRef} />
-    </AuthCheck>
-</aside>*/
 export default Post

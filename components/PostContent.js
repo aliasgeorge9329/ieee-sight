@@ -113,7 +113,7 @@ const PostContent = ({ post, posts, postRef }) => {
 				<div className='spacerv-sm'></div>
 				<div className={styles['comments'] + ' blog-margin'}>
 					<h3>Comments</h3>
-					<div className='flex align-center'>
+					<div className='flex align-center wrap'>
 						<input id='comment-box' type='text' placeholder='Add a comment' />
 						<div className='spacerh-xs'></div>
 						<AuthCheck
@@ -123,7 +123,7 @@ const PostContent = ({ post, posts, postRef }) => {
 										displayLoginPrompt(e, 'Please login to Comment')
 									}}
 								>
-									<button id='add-comment-button'>Add Comment</button>
+									<button id='add-comment-button'>Comment</button>
 								</div>
 							}
 						>

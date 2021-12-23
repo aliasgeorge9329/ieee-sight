@@ -1,0 +1,10 @@
+.checkbox {
+	border: none;
+	display: flex;
+	margin: 2rem 0;
+}
+.checkbox input {
+	margin-right: 0.5rem;
+	width: 1rem;
+	height: 1rem;
+}
