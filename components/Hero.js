@@ -5,13 +5,13 @@ const Hero = (props) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles['bg-image']}></div>
-			<h1 className={styles.h1}>
+			<h1 className={styles.h1 + ' margin'}>
 				Interface
 				<br />
 				Community
 			</h1>
 
-			<div className={styles['bottom-content']}>
+			<div className={styles['bottom-content'] + ' margin'}>
 				<div className={styles['content-wrapper']}>
 					<div className={styles['social-wrapper']}>
 						<p className={styles['social-title']}>Connect with us</p>

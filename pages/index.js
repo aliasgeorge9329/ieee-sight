@@ -45,11 +45,13 @@ export default function Home(props) {
 	}
 
 	return (
-		<div className='body margin'>
+		<div className='body'>
 			<Hero />
-			<PostFeed posts={posts} />
-			<LoadMore getMorePosts={getMorePosts} loading={loading} postsEnd={postsEnd} />
-			<div className='spacerv-md'></div>
+			<div className='margin'>
+				<PostFeed posts={posts} />
+				<LoadMore getMorePosts={getMorePosts} loading={loading} postsEnd={postsEnd} />
+				<div className='spacerv-md'></div>
+			</div>
 		</div>
 	)
 }

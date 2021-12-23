@@ -108,10 +108,10 @@
 @media (max-width: 560px) {
 	.bg-image {
 		right: -30%;
-		top: -10%;
+		top: 0;
 		transform: none;
-		width: 110vmin;
-		height: 110vmin;
+		width: 130vmin;
+		height: 130vmin;
 	}
 	.h1 {
 		font-size: 15vmin;
