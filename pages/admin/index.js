@@ -12,6 +12,7 @@ import styles from '../../styles/Index.module.css'
 const AdminPage = () => {
 	return (
 		<div className='margin'>
+			<div className='nav-spacer'></div>
 			<div className='spacerv-sm'></div>
 			<AuthCheck>
 				<CreateNewPost />
@@ -69,11 +70,10 @@ function CreateNewPost() {
 	}
 
 	return (
-		<div className={styles['create-post']}>
+		<div>
 			<h2>Create post</h2>
-			<form onSubmit={createPost} className='flex align-center wrap'>
+			<form onSubmit={createPost} className={styles['create-post']}>
 				<input type='text' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Blog Title' />
-				<div className='spacerh-xs'></div>
 				<button type='submit' disabled={!isValid}>
 					Create Post
 				</button>

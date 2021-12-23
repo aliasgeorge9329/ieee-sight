@@ -6,6 +6,7 @@ import CommentItem from './CommentItem'
 // extras
 import React, { useEffect, useState } from 'react'
 import styles from '../styles/PostContent.module.css'
+import commentStyles from '../styles/Index.module.css'
 import Share from './Share'
 import InfoDots from './InfoDots'
 import PostItem from './PostItem'
@@ -113,9 +114,8 @@ const PostContent = ({ post, posts, postRef }) => {
 				<div className='spacerv-sm'></div>
 				<div className={styles['comments'] + ' blog-margin'}>
 					<h3>Comments</h3>
-					<div className='flex align-center wrap'>
+					<div className={commentStyles['create-post']}>
 						<input id='comment-box' type='text' placeholder='Add a comment' />
-						<div className='spacerh-xs'></div>
 						<AuthCheck
 							fallback={
 								<div
