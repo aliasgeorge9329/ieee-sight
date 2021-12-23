@@ -71,7 +71,7 @@ function CreateNewPost() {
 	return (
 		<div className={styles['create-post']}>
 			<h2>Create post</h2>
-			<form onSubmit={createPost} className='flex align-center'>
+			<form onSubmit={createPost} className='flex align-center wrap'>
 				<input type='text' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Blog Title' />
 				<div className='spacerh-xs'></div>
 				<button type='submit' disabled={!isValid}>

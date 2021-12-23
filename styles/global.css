@@ -62,7 +62,7 @@ a {
 button {
 	background-color: rgb(3, 145, 85);
 	color: var(--text-color);
-	padding: 0.9rem 2rem;
+	padding: 0.9rem 1.5rem;
 	border-radius: 0.5rem;
 	font-size: 1rem;
 	border: none;
