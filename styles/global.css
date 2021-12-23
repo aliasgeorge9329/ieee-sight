@@ -18,7 +18,7 @@ html {
 }
 body {
 	background-color: var(--bg-color);
-	min-width: 320px;
+	min-width: 360px;
 	color: var(--text-color);
 	overflow-x: hidden;
 }
@@ -92,6 +92,10 @@ button.outline:hover {
 }
 button.outline:active {
 	color: var(--text-color);
+}
+
+.text-center {
+	text-align: center;
 }
 
 @media (max-width: 1000px) {

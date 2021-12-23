@@ -73,38 +73,39 @@ const PostContent = ({ post, posts, postRef }) => {
 			<div className='nav-spacer'></div>
 			<div className='spacerv-sm'></div>
 			<div className={styles['posts-container']}>
-				<div className={styles['heading']}>
-					<Link href={`/${post.username}/${post.slug}`} passHref>
-						<h2 style={{ cursor: 'pointer' }}>{post.title}</h2>
-					</Link>
-				</div>
-				<div className={styles['mini-description']}>Add Mini description here</div>
-				<div className={styles['post-wrapper']}>
-					By &nbsp;
-					<Link href={`/${post.username}`} passHref>
-						<a className={styles['author']}>@{post.username}</a>
-					</Link>{' '}
-					&nbsp; on {createdAt.toDateString()}
-				</div>
-				<div className={styles['icons']}>
-					<div className={styles['like-icon'] + ' pointer'}>
-						<AuthCheck
-							fallback={
-								<div
-									onClick={(e) => {
-										displayLoginPrompt(e, 'Please login to Like')
-									}}
-								>
-									<AiOutlineLike />
-								</div>
-							}
-						>
-							<LikeButton postRef={postRef} />
-						</AuthCheck>
+				<div className='flex-center flex-col text-center'>
+					<div className={styles['heading']}>
+						<Link href={`/${post.username}/${post.slug}`} passHref>
+							<h2 style={{ cursor: 'pointer' }}>{post.title}</h2>
+						</Link>
 					</div>
-					<div className={styles['like-count']}>{post.likeCount}</div>
-					<Share />
-					<InfoDots />
+					<div className={styles['mini-description']}>Add Mini description here</div>
+					<div className={styles['post-wrapper']}>
+						By &nbsp;
+						<Link href={`/${post.username}`} passHref>
+							<a className={styles['author']}>@{post.username}</a>
+						</Link>{' '}
+						&nbsp; on {createdAt.toDateString()}
+					</div>
+					<div className={styles['icons']}>
+						<div className={styles['like-icon'] + ' pointer'}>
+							<AuthCheck
+								fallback={
+									<div
+										onClick={(e) => {
+											displayLoginPrompt(e, 'Please login to Like')
+										}}
+									>
+										<AiOutlineLike />
+									</div>
+								}
+							>
+								<LikeButton postRef={postRef} />
+							</AuthCheck>
+						</div>
+						<div className={styles['like-count']}>{post.likeCount}</div>
+						<Share />
+					</div>
 				</div>
 
 				<div className={styles['content'] + ' blog-margin'}>

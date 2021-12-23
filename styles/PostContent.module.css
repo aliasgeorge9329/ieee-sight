@@ -31,6 +31,9 @@
 .icons > * {
 	margin-right: 2rem;
 }
+.icons > *:last-child {
+	margin-right: 0;
+}
 .like-icon {
 	margin-right: 1rem;
 }
