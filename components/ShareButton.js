@@ -1,7 +1,8 @@
 import styles from '../styles/ShareButton.module.css'
-import { FaRegShareSquare } from "react-icons/fa";
+import { FaRegShareSquare, FaWhatsapp, FaLinkedin, FaFacebook, FaPinterest, FaTwitter } from "react-icons/fa";
 import React from 'react';
 import reactDom from 'react-dom';
+import removeElementsByClass from '../lib/removeElementsByClassName';
 /* 
 Social Share Links:
 WhatsApp:
@@ -58,56 +59,51 @@ function ShareButtonInit() {
 }
 
 
-function ShareOptions(){
+function ShareOptions({link}){
   //const pinterestImg = document.getElementById(".pinterest-img");
-
-  let postUrl = encodeURI(document.location.href);
-  let postTitle = encodeURI("Hi everyone, please check this out: ");
+  
+  let postUrl = link?encodeURI(document.location.href+link):encodeURI(document.location.href);
+  let postTitle = encodeURI("Hello, Check out this cool article : ");
   //let postImg = encodeURI(pinterestImg.src);
   
   
   return(
-        <div class={styles["share-btn-container"]}>
-            <a id ="facebook" href={`https://www.facebook.com/sharer.php?u=${postUrl}`} class="facebook-btn">
-                <i class="fab fa-facebook"></i>
+        <div className={styles["share-btn-container"]}>
+            <a id ="facebook" href={`https://www.facebook.com/sharer.php?u=${postUrl}`} className="facebook-btn">
+                <FaFacebook/>
             </a>
 
-            <a id="twitter" href={`https://twitter.com/share?url=${postUrl}&text=${postTitle}`} class="twitter-btn">
-                <i class="fab fa-twitter"></i>
+            <a id="twitter" href={`https://twitter.com/share?url=${postUrl}&text=${postTitle}`} className="twitter-btn">
+                <FaTwitter/>
             </a>
 
-            <a id="pinterest" href={`https://pinterest.com/pin/create/bookmarklet/?url=${postUrl}&description=${postTitle}`} class="pinterest-btn">
-                <i class="fab fa-pinterest"></i>
+            <a id="pinterest" href={`https://pinterest.com/pin/create/bookmarklet/?url=${postUrl}&description=${postTitle}`} className="pinterest-btn">
+                <FaPinterest/>
             </a>
 
-            <a id="linkedin" href={`https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`} class="linkedin-btn">
-                <i class="fab fa-linkedin"></i>
+            <a id="linkedin" href={`https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`} className="linkedin-btn">
+                <FaLinkedin/>
             </a>
 
-            <a id="whatsapp" href={`https://wa.me/?text=${postTitle} ${postUrl}`} class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i>
+            <a id="whatsapp" href={`https://wa.me/?text=${postTitle} ${postUrl}`} className={styles["whatsapp-btn"]}>
+                <FaWhatsapp/>
             </a>
         </div>
     )
 }
 
-export default function ShareButton()
+export default function ShareButton(link)
 {
     
     return(
-        <div id = 'share-button-container' class="share-btn" onClick={
+        <div id = 'share-button-container' className="share-btn" onClick={
             () =>{
-                
-                const options = ShareOptions()
+                removeElementsByClass("share-options");
+                const options = ShareOptions(link)
                 const mainDiv = document.getElementById('main-container')
                 const newSubDiv = document.createElement('div')
+                newSubDiv.className = "share-options"
                 mainDiv.appendChild(newSubDiv)
-                //newSubDiv.className = styles['please-login-container']
-                // newSubDiv.innerHTML = `${
-                // <>
-                //     <ShareOptions/>
-                // </>
-                // }`
                 reactDom.render(options, newSubDiv)
                 
 

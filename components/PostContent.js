@@ -2,41 +2,36 @@ import dynamic from 'next/dynamic'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import 'react-quill/dist/quill.bubble.css'
 import CommentItem from './CommentItem'
-
+import CommentButton from './CommentButton'
+import ShareButton from './ShareButton'
+import LikeButton from './LikeButton'
 // extras
 import React, { useEffect, useState, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { UserContext } from '../lib/authContext';
 import styles from '../styles/PostContent.module.css'
 import commentStyles from '../styles/Index.module.css'
-import Share from './Share'
 import toast from 'react-hot-toast'
 import PostFeed from './PostFeed'
-import LikeButton from './LikeButton'
 
 import AuthCheck from './AuthCheck'
 import Link from 'next/dist/client/link'
 
 import { AiOutlineLike, AiFillDelete } from 'react-icons/ai'
 
-import CommentButton from './CommentButton'
 import { useCollection } from 'react-firebase-hooks/firestore'
-
+import removeElementsByClass from '../lib/removeElementsByClassName'
 // sample dummy comment
+/*
 let sample_comments = [
 	{ username: 'john123', content: 'This is such an insightful post!' },
 	{ username: 'Joe11', content: 'Wonderful, keep up the great work.' },
 ]
-function removeElementsByClass(className) {
-	className = styles[className]
-	var elements = document.getElementsByClassName(className)
-	while (elements.length > 0) {
-		elements[0].parentNode.removeChild(elements[0])
-	}
-}
+*/
+
 
 const displayLoginPrompt = (e, text) => {
-	removeElementsByClass('please-login-container')
+	removeElementsByClass(styles['please-login-container'])
 	const mainDiv = document.getElementById('main-container')
 	const newSubDiv = document.createElement('div')
 	newSubDiv.className = styles['please-login-container']
@@ -128,7 +123,7 @@ const PostContent = ({ post, posts, postRef }) => {
 							</AuthCheck>
 						</div>
 						<div className={styles['like-count']}>{post.likeCount}</div>
-						<Share />
+						<ShareButton />
 						{currentUser?.uid === post.uid && (
 							<DeletePostButton postRef={postRef}/>
 						)}

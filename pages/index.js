@@ -47,7 +47,7 @@ export default function Home(props) {
 	return (
 		<div className='body'>
 			<Hero />
-			<div className='margin'>
+			<div id="main-container" className='margin'>
 				<PostFeed posts={posts} />
 				<LoadMore getMorePosts={getMorePosts} loading={loading} postsEnd={postsEnd} />
 				<div className='spacerv-md'></div>

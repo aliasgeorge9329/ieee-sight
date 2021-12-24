@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
 import styles from '../styles/PostItem.module.css'
-import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
-import Share from './Share'
+import {  AiOutlineLike } from 'react-icons/ai'
+import ShareButton from './ShareButton'
 import Link from 'next/link'
 
 function PostItem({ post, admin = false }) {
-	//clicked variable to handle like and unlike
-	const [LikeClicked, LikeClickedFn] = useState(false)
-	let invert = () => {
-		LikeClickedFn(!LikeClicked)
-		console.log(LikeClicked)
-	}
-
+	
+	
 	//Show the word count in post card.
 	const wordCount = post?.content.trim().split(/\s+/g).length
 	const minutesToRead = (wordCount / 100 + 1).toFixed(0)
@@ -39,7 +33,7 @@ function PostItem({ post, admin = false }) {
 						{post.likeCount}
 					</div>
 					<div className='spacerh-sm'></div>
-					<Share />
+					<ShareButton link={`${post.username}/${post.slug}`} />
 				</div>
 			</div>
 		</div>

@@ -16,7 +16,8 @@
   /* Share Buttons */
   
   .share-btn-container {
-    background: #fff;
+    /*background: #fff;*/
+    font-size: 30px;
     display: flex;
     flex-direction: column;
     padding: 16px;
