@@ -1,173 +1,46 @@
-
 .posts-section {
-	display: grid;
-	grid-template-columns: 80% 30%;
-	justify-self: center;
-	
-
-		
-	
 }
-.please-login-container{
-    position: fixed;
-    z-index: 1000;
-    width: 250px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px; /* Negative half of height. */
-    margin-left: -125px; /* Negative half of width. */
-
-
-}
-.heading{
-    font-size: 4rem;
-    text-align: center;
-    font-weight: bold;
-    margin: 1rem 1rem 1rem 1rem; /*top right bottom left*/
-	padding: 1rem 2rem 1rem 1rem; /*top right bottom left*/
-	word-wrap: break-word;
+.please-login-container {
+	position: fixed;
+	z-index: 1000;
+	width: 250px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px; /* Negative half of height. */
+	margin-left: -125px; /* Negative half of width. */
 }
 
-
-.comments>h3{
-	font-size: 2rem;
-	text-align: left;
-	font-weight: bold;
-	margin: 1.5rem 1rem 0.5rem 1rem; /*top right bottom left*/
+.mini-description {
+	font-size: 1.25rem;
+	margin: 1.5rem 0;
 }
-
-.comments{
-	font-size: 2rem;
-	text-align: left;
-	margin: 1.5rem 1rem 0.5rem 1rem; /*top right bottom left*/
-}
-.mini-description{
-	font-size: 2rem;
-	text-align: left;
-	margin: 1rem 1rem 0.5rem 1rem; /*top right bottom left*/
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-
-.posts-container {
-	margin: 8rem 1rem 1rem 5rem; /*top right bottom left*/
-	background :rgb(0,0,0,0.2);
-	min-width: 33.33%;
-	border-radius: 0.7rem;
-	padding: 1rem;
-	max-width: max-content;
-	max-height: fit-content;
-}
-
-.cards-container {
-	display: flex;
-	flex-direction: column;
-	margin: 8rem 1rem 1rem 1rem; /*top right bottom left*/
-	min-width: 33.33%;
-	border-radius: 0.7rem;
-	padding: 1rem;
-	max-width: fit-content;
-
-}
-
-.post-container {
-	min-width: 33.33%;
-	/* flex: 1; */
-}
-
 .post-wrapper {
-	margin: 1.5rem 1rem;
-	border-radius: 1rem;
-	padding: .7rem;
-	
+	margin-bottom: 1.5rem;
 }
 
-
-
-.icons{
-	display: inline-grid;
-	grid-template-columns: 33.33% 13.33% 33.33% 23.33%;
-	grid-gap: 70%;
-	word-wrap: break-word;
-	margin: 1rem 1rem;
-	font-size: 1.7rem;
-	text-align: center;
-	
-
-}
-@media (max-width:500px)
-{
-	.heading{
-		font-size: 2rem;
-		text-align: center;
-		font-weight: bold;
-		margin: 1rem 1rem 1rem 1rem; /*top right bottom left*/
-		padding: 1rem 2rem 1rem 1rem; /*top right bottom left*/
-		word-wrap: break-word;
-	}
-	
-	
-	.posts-section {
-		display: flex;
-		flex-direction: column;
-		margin: 0rem 0rem 0rem 0rem; /*top right bottom left*/
-		
-		
-		
-	}
-	.post-wrapper{
-		line-height: 200%;
-	}
-	
-	.icons{
-		display: inline-grid;
-		grid-template-columns: 33.33% 33.33% 33.33%;
-		grid-gap: 150%;
-		margin: 1rem 1rem;
-		font-size: 1.5rem;
-		text-align: center;
-		word-wrap: break-word;
-		
-	
-	}
-	
+.comments > h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
 }
 
-@media (max-width: 1000px) {
-	.post-container {
-		min-width: 50%;
-	}
-
-	.post-container:nth-child(odd) .post-wrapper {
-		margin: 1.5rem 0;
-		margin-right: 0.75rem;
-	}
-	.post-container:nth-child(even) .post-wrapper {
-		margin: 1.5rem 0;
-		margin-left: 0.75rem;
-	}
+.icons {
+	display: flex;
+	font-size: 1.5rem;
 }
-@media (max-width: 600px) {
-	.post-container {
-		min-width: 100%;
-	}
-
-	.post-container:nth-child(even) .post-wrapper,
-	.post-container:nth-child(odd) .post-wrapper {
-		margin: 1.5rem 0;
-	}
+.icons > * {
+	margin-right: 2rem;
+}
+.icons > *:last-child {
+	margin-right: 0;
+}
+.like-icon {
+	margin-right: 1rem;
 }
 
-@media (max-width: 426px) {
-	.margin {
-		padding: 0 1rem;
-	}
-
-	.post-wrapper {
-		margin: 1rem 0;
-	}
+.content {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 }
 
 .image {

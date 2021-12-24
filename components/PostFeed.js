@@ -1,14 +1,14 @@
-import PostItem from "./PostItem";
+import PostItem from './PostItem'
 import styles from '../styles/PostItem.module.css'
 
 //Admin props for editing the post authored by the currently logged in user
-export default function PostFeed({ posts, admin }) {
+export default function PostFeed({ title, posts, admin }) {
 	return (
-		<section className={styles['posts-section'] + ' margin'}>
-			<div className="spacer-m"></div>
-			<h2>Recent Posts</h2>
-			<div className={styles['posts-container']}>{posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin} />) : null}</div>
-			<div className="spacer-m"></div>
+		<section className={styles['posts-section']}>
+			<h2>{title || 'Recent Posts'}</h2>
+			<div className={styles['posts-container']}>
+				{posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin} />) : null}
+			</div>
 		</section>
 	)
 }

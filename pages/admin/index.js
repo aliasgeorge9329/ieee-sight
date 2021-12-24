@@ -6,16 +6,20 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../lib/authContext'
 import kebabCase from 'lodash.kebabcase'
-import toast from 'react-hot-toast' 
-import styles from "../../styles/Index.module.css"
+import toast from 'react-hot-toast'
+import styles from '../../styles/Index.module.css'
 
 const AdminPage = () => {
 	return (
-		<div>
+		<div className='margin'>
+			<div className='nav-spacer'></div>
+			<div className='spacerv-sm'></div>
 			<AuthCheck>
 				<CreateNewPost />
+				<div className='spacerv-md'></div>
 				<PostList />
 			</AuthCheck>
+			<div className='spacerv-md'></div>
 		</div>
 	)
 }
@@ -29,12 +33,7 @@ function PostList() {
 
 	const posts = querySnapshot?.docs.map((doc) => doc.data())
 
-	return (
-		<>
-			<h1>Your Posts</h1>
-			<PostFeed posts={posts} admin />
-		</>
-	)
+	return <PostFeed title='Your posts' posts={posts} admin />
 }
 
 function CreateNewPost() {
@@ -71,13 +70,14 @@ function CreateNewPost() {
 	}
 
 	return (
-		<div className={styles["create-post"]}>
-		<form onSubmit={createPost}>
-			<input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Blog Title" />
-			<button type="submit" disabled={!isValid}>
-				Create Post
-			</button>
-		</form>
+		<div>
+			<h2>Create post</h2>
+			<form onSubmit={createPost} className={styles['create-post']}>
+				<input type='text' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Blog Title' />
+				<button type='submit' disabled={!isValid}>
+					Create Post
+				</button>
+			</form>
 		</div>
 	)
 }
