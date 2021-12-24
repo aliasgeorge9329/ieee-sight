@@ -1,10 +1,6 @@
 import { auth, firestore, getUserWithUsername, postToJSON } from '../../lib/firebase'
 import PostContent from '../../components/PostContent'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
-import LikeButton from '../../components/LikeButton'
-import AuthCheck from '../../components/AuthCheck'
-import Link from 'next/dist/client/link'
-import CommentItem from '../../components/CommentItem'
 //Incremental Static Regeneration
 
 export async function getStaticProps({ params }) {

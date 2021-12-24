@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import router, { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
 import toast from 'react-hot-toast'
@@ -63,6 +63,7 @@ function PostForm({ defaultValues, postRef }) {
 		reset({ content: article, published: published }) //Resets the form values to the given
 
 		toast.success('Post Updated 🥳')
+		router.push('/')
 	}
 
 	var handlerOptions = {
@@ -94,6 +95,7 @@ function PostForm({ defaultValues, postRef }) {
 		},
 	}
 
+
 	return (
 		<form onSubmit={handleSubmit(updatePost)}>
 			<div className={styles['quill']}>
@@ -110,7 +112,7 @@ function PostForm({ defaultValues, postRef }) {
 				<input type='checkbox' {...register('published')} />
 				<label>Publish?</label>
 			</fieldset>
-			<button type='submit'>Update Changes</button>
+			<button type='submit'>Post</button>
 		</form>
 	)
 }

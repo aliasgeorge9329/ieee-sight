@@ -4,19 +4,20 @@ import 'react-quill/dist/quill.bubble.css'
 import CommentItem from './CommentItem'
 
 // extras
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { useRouter } from 'next/router'
+import { UserContext } from '../lib/authContext';
 import styles from '../styles/PostContent.module.css'
 import commentStyles from '../styles/Index.module.css'
 import Share from './Share'
-import InfoDots from './InfoDots'
-import PostItem from './PostItem'
+import toast from 'react-hot-toast'
 import PostFeed from './PostFeed'
-
 import LikeButton from './LikeButton'
+
 import AuthCheck from './AuthCheck'
 import Link from 'next/dist/client/link'
 
-import { AiOutlineLike } from 'react-icons/ai'
+import { AiOutlineLike, AiFillDelete } from 'react-icons/ai'
 
 import CommentButton from './CommentButton'
 import { useCollection } from 'react-firebase-hooks/firestore'
@@ -46,13 +47,36 @@ const displayLoginPrompt = (e, text) => {
 	//debugger
 }
 
+//To delete the blog updated by the user
+function DeletePostButton({ postRef }) {
+	const router = useRouter();
+  
+	const deletePost = async () => {
+	  const doIt = confirm('are you sure!');
+	  if (doIt) {
+		await postRef.delete();
+		router.push('/');
+		toast('post deleted ', { icon: '🗑️' });
+	  }
+	};
+  
+	return (
+	  <AiFillDelete onClick={deletePost} />
+	);
+  }
+
 let allComments = []
 let uid = 0
 
 const PostContent = ({ post, posts, postRef }) => {
+	const { user: currentUser } = useContext(UserContext);
+
 	const createdAt = typeof post?.createdAt === 'number' ? new Date(post.createdAt) : post.createdAt.toDate()
+	
 	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments').orderBy('createdAt'))
+	
 	const [rerender, setRerender] = useState(false)
+	
 	useEffect(() => {
 		if (comments) {
 			allComments = []
@@ -105,6 +129,9 @@ const PostContent = ({ post, posts, postRef }) => {
 						</div>
 						<div className={styles['like-count']}>{post.likeCount}</div>
 						<Share />
+						{currentUser?.uid === post.uid && (
+							<DeletePostButton postRef={postRef}/>
+						)}
 					</div>
 				</div>
 
