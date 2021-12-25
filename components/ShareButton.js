@@ -22,7 +22,7 @@ https://www.linkedin.com/shareArticle?url=[post-url]&title=[post-title]
 function ShareOptions({link}){
   //const pinterestImg = document.getElementById(".pinterest-img");
   
-  let postUrl = link?encodeURI(document.location.href+link):encodeURI(document.location.href);
+  let postUrl = link?encodeURI(window.location.origin+link):encodeURI(document.location.href);
   let postTitle = encodeURI("Hello, Check out this cool article : ");
   //let postImg = encodeURI(pinterestImg.src);
   
