@@ -33,7 +33,7 @@ function PostItem({ post, admin = false }) {
 						{post.likeCount}
 					</div>
 					<div className='spacerh-sm'></div>
-					<ShareButton link={`${post.username}/${post.slug}`} />
+					<ShareButton link={`/${post.username}/${post.slug}`} />
 				</div>
 			</div>
 		</div>
