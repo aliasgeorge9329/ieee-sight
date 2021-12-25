@@ -1,4 +1,4 @@
-import { auth, firestore, getUserWithUsername, postToJSON } from '../../lib/firebase'
+import {  firestore, getUserWithUsername, postToJSON } from '../../lib/firebase'
 import PostContent from '../../components/PostContent'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 //Incremental Static Regeneration
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 }
 
 const Post = (props) => {
-	const user = auth
+	
 	const postRef = firestore.doc(props.path)
 	const [realtimePost] = useDocumentData(postRef) //Gets a feed of the data in realtime
 

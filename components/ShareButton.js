@@ -1,5 +1,5 @@
 import styles from '../styles/ShareButton.module.css'
-import { FaRegShareSquare, FaWhatsapp, FaLinkedin, FaFacebook, FaPinterest, FaTwitter } from "react-icons/fa";
+import { FaInstagram,FaRegShareSquare, FaWhatsapp, FaLinkedin, FaFacebook, FaPinterest, FaTwitter } from "react-icons/fa";
 import React from 'react';
 import reactDom from 'react-dom';
 import removeElementsByClass from '../lib/removeElementsByClassName';
@@ -18,46 +18,6 @@ https://www.linkedin.com/shareArticle?url=[post-url]&title=[post-title]
 */
 
 
-function ShareButtonInit() {
-    const facebookBtn = document.getElementById("facebook");
-    const twitterBtn = document.getElementById("twitter");
-    const pinterestBtn = document.getElementById("pinterest-btn");
-    const linkedinBtn = document.getElementById("linkedin");
-    const whatsappBtn = document.getElementById("whatsapp");
-
-
-  //const pinterestImg = document.getElementById(".pinterest-img");
-
-  let postUrl = encodeURI(document.location.href);
-  let postTitle = encodeURI("Hi everyone, please check this out: ");
-  //let postImg = encodeURI(pinterestImg.src);
-
-  facebookBtn.setAttribute(
-    "href",
-    `https://www.facebook.com/sharer.php?u=${postUrl}`
-  );
-
-  twitterBtn.setAttribute(
-    "href",
-    `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
-  );
-
-  pinterestBtn.setAttribute(
-    "href",
-    `https://pinterest.com/pin/create/bookmarklet/?media=${postImg}&url=${postUrl}&description=${postTitle}`
-  );
-
-  linkedinBtn.setAttribute(
-    "href",
-    `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
-  );
-
-  whatsappBtn.setAttribute(
-    "href",
-    `https://wa.me/?text=${postTitle} ${postUrl}`
-  );
-}
-
 
 function ShareOptions({link}){
   //const pinterestImg = document.getElementById(".pinterest-img");
@@ -66,9 +26,13 @@ function ShareOptions({link}){
   let postTitle = encodeURI("Hello, Check out this cool article : ");
   //let postImg = encodeURI(pinterestImg.src);
   
+            // <a id ="instagram" href={} className="instagram-btn">
+            //     <FaInstagram/>
+            // </a>
   
   return(
         <div className={styles["share-btn-container"]}>
+
             <a id ="facebook" href={`https://www.facebook.com/sharer.php?u=${postUrl}`} className="facebook-btn">
                 <FaFacebook/>
             </a>

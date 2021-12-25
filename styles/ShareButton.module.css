@@ -68,6 +68,7 @@
     }
   
     .share-btn-container {
+      font-size: 23px;
       transform: unset;
       top: unset;
       left: 0;
