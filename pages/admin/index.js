@@ -44,7 +44,7 @@ function CreateNewPost() {
   const { username } = useContext(UserContext);
 
   const [title, setTitle] = useState("");
-  const [postType, setPostType] = useState("");
+  const [postType, setPostType] = useState("problems-hub");
 
   //For URL
   const slug = encodeURI(kebabCase(title));

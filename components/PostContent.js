@@ -71,6 +71,8 @@ const PostContent = ({ post, posts, postRef }) => {
 	const [comments, commentsLoading, commentsError] = useCollection(postRef.collection('comments').orderBy('createdAt'))
 	
 	const [rerender, setRerender] = useState(false)
+
+	let isAdmin = currentUser?.uid === post.uid
 	
 	useEffect(() => {
 		if (comments) {
@@ -126,12 +128,13 @@ const PostContent = ({ post, posts, postRef }) => {
 						<ShareButton />
 						{currentUser?.uid === post.uid && (
 							<DeletePostButton postRef={postRef}/>
+							
 						)}
 					</div>
 				</div>
 
 				<div className={styles['content'] + ' blog-margin'}>
-					<ReactQuill value={post?.content} readOnly={true} theme={'bubble'} />
+					<ReactQuill value={post?.content} readOnly={!isAdmin} theme={'bubble'} />
 				</div>
 
 				<div className='spacerv-sm'></div>
