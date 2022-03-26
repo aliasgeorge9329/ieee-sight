@@ -1,7 +1,4 @@
 import Hero from "../components/Hero";
-import PostFeed from "../components/PostFeed";
-import LoadMore from "../components/LoadMore";
-import Footer from "../components/Footer";
 
 import { useState } from "react";
 import { firestore, fromMillis, postToJSON } from "../lib/firebase";
@@ -60,12 +57,6 @@ export default function Home(props) {
     <div className="body">
       <Hero />
       <div id="main-container" className="margin">
-        {/* <PostFeed posts={posts} />
-        <LoadMore
-          getMorePosts={getMorePosts}
-          loading={loading}
-          postsEnd={postsEnd}
-        /> */}
         <div className="spacerv-md"></div>
       </div>
     </div>

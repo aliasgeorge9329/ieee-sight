@@ -1,12 +1,14 @@
 .create-post {
-	display: grid;
-	grid-gap: 0.75rem;
-	max-width: 600px;
-	grid-template-columns: 2fr 1fr;
+  display: grid;
+  grid-gap: 0.75rem;
+  max-width: 600px;
+  grid-template-columns: 2fr 1fr;
 }
-
+.postType {
+  display: inline;
+}
 @media (max-width: 600px) {
-	.create-post {
-		grid-template-columns: unset;
-	}
+  .create-post {
+    grid-template-columns: unset;
+  }
 }
