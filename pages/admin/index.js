@@ -92,8 +92,6 @@ function CreateNewPost() {
           placeholder="Blog Title"
         />
         <br />
-        <br />
-        <br />
         <label for="contactChoice1">Solutions Hub</label>
         <input
           type="radio"
