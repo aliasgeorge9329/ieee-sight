@@ -11,13 +11,13 @@ function Navbar() {
     <nav className={styles["navbar"] + " margin"}>
       <HamMenu />
       <Link href={"/"} passHref>
-        <div className={styles["logo-wrapper"] + " pointer"}>Ieee Sight</div>
+        <div className={styles["logo-wrapper"] + " pointer"}>IEEE SIGHT</div>
       </Link>
 
       <div className={styles["nav-links-wrapper"]}>
         <ul>
           <Link href={"/"} passHref>
-            <li>Home</li>
+            <li>HOME</li>
           </Link>
           <Link href={"/knowledgehub"} passHref>
             <li>KNOWLEDGE HUB</li>
@@ -74,13 +74,16 @@ function HamMenu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <a href="#">Blogs</a>
+          <a href="/">HOME</a>
         </li>
         <li className="menu-item">
-          <a href="#">About</a>
+          <a href="/knowledgehub">KNOWLEDGE HUB</a>
         </li>
         <li className="menu-item">
-          <a href="#">Contact</a>
+          <a href="/solutionshub">SOLUTIONS HUB</a>
+        </li>
+        <li className="menu-item">
+          <a href="/problemshub">PROBLEMS HUB</a>
         </li>
       </ul>
     </div>

@@ -56,8 +56,29 @@ export default function Home(props) {
   return (
     <div className="body">
       <Hero />
-      <div id="main-container" className="margin">
-        <div className="spacerv-md"></div>
+      <div className="margin">
+        <div className="about">
+          <h1>About Us</h1>
+          <br />
+          <h3>Mission</h3>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+            eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
+            aperiam hic cum optio deleniti repudiandae ut consequuntur officia
+            exercitationem saepe laudantium.
+          </p>
+          <br />
+          <h3>Vision</h3>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+            eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
+            aperiam hic cum optio deleniti repudiandae ut consequuntur officia
+            exercitationem saepe laudantium.
+          </p>
+          <div className="margin"></div>
+        </div>
       </div>
     </div>
   );

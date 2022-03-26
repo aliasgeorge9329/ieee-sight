@@ -1,20 +1,21 @@
 .load-more-container {
-	height: 8rem;
+  height: 7rem;
+  margin-top: 80px;
 }
 
 .icon {
-	font-size: 2rem;
-	animation-name: spin;
-	animation-duration: 5000ms;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
+  font-size: 2rem;
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -9,6 +9,9 @@ const Hero = (props) => {
         IEEE
         <br />
         SIGHT
+        <p className={styles["desc"]}>
+          Special interest group on humanitarian technology.
+        </p>
       </h1>
 
       <div className={styles["bottom-content"] + " margin"}>
@@ -27,11 +30,6 @@ const Hero = (props) => {
               className={`${styles.icons} iconify`}
               data-icon="mdi:linkedin"
             ></span>
-          </div>
-          <div className={styles["description-wrapper"]}>
-            <p className={styles.description}>
-              Special interest group on humanitarian technology.
-            </p>
           </div>
         </div>
       </div>

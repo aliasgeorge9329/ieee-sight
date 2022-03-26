@@ -33,20 +33,16 @@ export default function Footer() {
               data-icon="mdi:linkedin"
             ></span>
           </div>
-          <p className={styles.newsletter}>NEWSLETTER</p>
+          <br />
           <p className={styles.email}>name@example.com</p>
-          <button className={styles.subscribe}>SUBSCRIBE</button>
-          <p className={styles.copyright}>&#169; 2021</p>
+          <p className={styles.copyright}>&#169; 2022</p>
         </div>
         <div className={styles["bottom-links"]}>
-          <Link href="/blogs">
-            <a>Blogs</a>
+          <Link href="/">
+            <a>Home</a>
           </Link>
-          <Link href="/aboutus">
+          <Link href="/">
             <a>About Us</a>
-          </Link>
-          <Link href="/ourteam">
-            <a>Our Team</a>
           </Link>
           <Link href="/email">
             <a>Email Us</a>

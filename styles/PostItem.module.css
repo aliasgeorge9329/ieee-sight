@@ -32,10 +32,10 @@
 }
 
 .author {
-  background-color: #ffe53b;
-  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
-  background-color: #ffd73b;
-  background-image: linear-gradient(132deg, #ffcc00 0%, #007560 100%);
+  background-color: #3ba7ff;
+  background-image: linear-gradient(147deg, #3b89ff 0%, #258bff 74%);
+  background-color: #3bb1ff;
+  background-image: linear-gradient(132deg, #3b89ff 0%, #2579ff 100%);
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
   font-size: 0.8rem;

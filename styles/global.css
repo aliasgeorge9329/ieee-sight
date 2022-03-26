@@ -34,6 +34,12 @@ p {
   letter-spacing: 0.5px;
 }
 
+.about {
+  padding-top: 12rem;
+  font-size: 1.4rem;
+  padding-bottom: 5rem;
+  color: #fff;
+}
 .margin {
   padding: 0 4rem;
   margin: 0 auto;

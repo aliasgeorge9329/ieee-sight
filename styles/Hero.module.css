@@ -6,6 +6,10 @@
   margin: 0 auto;
 }
 
+.desc {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
 .bg-image {
   position: absolute;
   top: 14%;
@@ -53,7 +57,11 @@
 }
 .description {
   text-align: right;
-  margin-left: 2rem;
+  margin-left: -2rem;
+  position: relative;
+  top: -100px;
+  color: white;
+  font-size: 1.2rem;
 }
 
 .social-wrapper {
