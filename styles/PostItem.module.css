@@ -30,7 +30,11 @@
   margin-bottom: 2rem;
   border-radius: 0.5rem;
 }
-
+.img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 .author {
   background-color: #3ba7ff;
   background-image: linear-gradient(147deg, #3b89ff 0%, #258bff 74%);

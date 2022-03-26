@@ -108,9 +108,10 @@ const PostContent = ({ post, posts, postRef }) => {
               <h2 style={{ cursor: "pointer" }}>{post.title}</h2>
             </Link>
           </div>
-          <div className={styles["mini-description"]}>
+          {/* <div className={styles["mini-description"]}>
             Add Mini description here
-          </div>
+          </div> */}
+          <br />
           <div className={styles["post-wrapper"]}>
             By &nbsp;
             <Link href={`/${post.username}`} passHref>
@@ -118,6 +119,7 @@ const PostContent = ({ post, posts, postRef }) => {
             </Link>{" "}
             &nbsp; on {createdAt.toDateString()}
           </div>
+          <br />
           <div className={styles["icons"]}>
             <div className={styles["like-icon"] + " pointer"}>
               <AuthCheck
