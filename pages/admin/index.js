@@ -92,7 +92,7 @@ function CreateNewPost() {
           placeholder="Blog Title"
         />
         <br />
-        <label for="contactChoice1">Solutions Hub</label>
+        <label htmlFor="contactChoice1">Solutions Hub</label>
         <input
           type="radio"
           className="typeform"
@@ -101,7 +101,7 @@ function CreateNewPost() {
           name="postType"
           value="solution-hub"
         ></input>
-        <label for="contactChoice1">Knowledge Hub</label>
+        <label htmlFor="contactChoice1">Knowledge Hub</label>
         <input
           type="radio"
           className="typeform"
@@ -110,7 +110,7 @@ function CreateNewPost() {
           name="postType"
           value="knowledge-hub"
         ></input>
-        <label for="contactChoice1">Problems Hub</label>
+        <label htmlFor="contactChoice1">Problems Hub</label>
         <input
           type="radio"
           className="typeform"

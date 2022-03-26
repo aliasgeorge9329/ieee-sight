@@ -22,10 +22,9 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function knowledgehub(props) {
+export default function Knowledgehub(props) {
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
-
   const [postsEnd, setPostsEnd] = useState(false);
 
   // Get next page in pagination query
