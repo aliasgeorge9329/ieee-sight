@@ -41,6 +41,7 @@ function CreateNewPost() {
 	const { username } = useContext(UserContext)
 
 	const [title, setTitle] = useState('')
+	const [postType, setPostType] = useState('')
 
 	//For URL
 	const slug = encodeURI(kebabCase(title))
@@ -48,6 +49,8 @@ function CreateNewPost() {
 
 	async function createPost(e) {
 		e.preventDefault()
+		
+		console.log(e.target)
 		const uid = auth.currentUser.uid
 		const ref = firestore.collection('users').doc(uid).collection('posts').doc(slug)
 
@@ -61,6 +64,7 @@ function CreateNewPost() {
 			createdAt: serverTimestamp(),
 			updatedAt: serverTimestamp(),
 			likeCount: 0,
+			postType : postType,	
 		}
 
 		await ref.set(data)
@@ -69,11 +73,26 @@ function CreateNewPost() {
 		router.push(`/admin/${slug}`)
 	}
 
+	
 	return (
 		<div>
 			<h2>Create post</h2>
 			<form onSubmit={createPost} className={styles['create-post']}>
+				
 				<input type='text' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Blog Title' />
+				
+				<input type="radio" onChange={(e) => setPostType("solution-hub")} id="contactChoice1" name="postType" value="solution-hub"></input>
+				<label for="contactChoice1">Solutions Hub</label>
+
+
+				<input type="radio" onChange={(e) => setPostType("knowledge-hub")} id="contactChoice1" name="postType" value="knowledge-hub"></input>
+				<label for="contactChoice1">Knowledge Hub</label>
+
+
+				<input type="radio" onChange={(e) => setPostType("problems-hub")} id="contactChoice1" name="postType" value="problems-hub"></input>
+				<label for="contactChoice1">Problems Hub</label>
+				
+
 				<button type='submit' disabled={!isValid}>
 					Create Post
 				</button>
