@@ -2,6 +2,7 @@ import styles from "../styles/PostItem.module.css";
 import { AiOutlineLike } from "react-icons/ai";
 import ShareButton from "./ShareButton";
 import Link from "next/link";
+import { Image } from "@chakra-ui/react";
 function PostItem({ post, admin = false }) {
   function image(a) {
     var parser = require("node-html-parser");
@@ -18,7 +19,7 @@ function PostItem({ post, admin = false }) {
       <div className={styles["post-wrapper"]}>
         <div className={styles["image"]}>
           <Link href={`/${post.username}/${post.slug}`} passHref>
-            <img
+            <Image
               style={{ cursor: "pointer" }}
               src={image(post.content)}
               className={image(post.content) ? styles["img"] : ""}
