@@ -13,6 +13,7 @@ export async function getServerSideProps(context) {
   const postsQuery = firestore
     .collectionGroup("posts")
     .where("published", "==", true)
+    .where("postType", "==", "knowledge-hub")
     .orderBy("createdAt", "desc")
     .limit(LIMIT);
 
