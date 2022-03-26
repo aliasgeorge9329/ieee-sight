@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Home(props) {
+export default function SolutionsHub(props) {
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
 
@@ -58,14 +58,13 @@ export default function Home(props) {
 
   return (
     <div className="body">
-      <Hero />
       <div id="main-container" className="margin">
-        {/* <PostFeed posts={posts} />
+        <PostFeed posts={posts} />
         <LoadMore
           getMorePosts={getMorePosts}
           loading={loading}
           postsEnd={postsEnd}
-        /> */}
+        />
         <div className="spacerv-md"></div>
       </div>
     </div>
