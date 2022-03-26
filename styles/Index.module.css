@@ -4,8 +4,8 @@
   max-width: 600px;
   grid-template-columns: 2fr 1fr;
 }
-.postType {
-  display: inline;
+.typeform {
+  padding-top: 20px;
 }
 @media (max-width: 600px) {
   .create-post {

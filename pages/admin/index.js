@@ -83,6 +83,7 @@ function CreateNewPost() {
   return (
     <div>
       <h2>Create post</h2>
+
       <form onSubmit={createPost} className={styles["create-post"]}>
         <input
           type="text"
@@ -91,9 +92,12 @@ function CreateNewPost() {
           placeholder="Blog Title"
         />
         <br />
+        <br />
+        <br />
         <label for="contactChoice1">Solutions Hub</label>
         <input
           type="radio"
+          className="typeform"
           onChange={(e) => setPostType("solution-hub")}
           id="contactChoice1"
           name="postType"
@@ -102,6 +106,7 @@ function CreateNewPost() {
         <label for="contactChoice1">Knowledge Hub</label>
         <input
           type="radio"
+          className="typeform"
           onChange={(e) => setPostType("knowledge-hub")}
           id="contactChoice1"
           name="postType"
@@ -110,10 +115,12 @@ function CreateNewPost() {
         <label for="contactChoice1">Problems Hub</label>
         <input
           type="radio"
+          className="typeform"
           onChange={(e) => setPostType("problems-hub")}
           id="contactChoice1"
           name="postType"
           value="problems-hub"
+          checked
         ></input>
 
         <button type="submit" disabled={!isValid}>
