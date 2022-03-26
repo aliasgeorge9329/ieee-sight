@@ -1,122 +1,123 @@
 .top {
-	display: flex;
-	align-items: center;
-	padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  padding-top: 10rem;
+  padding-bottom: 3rem;
 }
 
 .logo {
-	padding: 0 2rem;
-	line-height: 1;
-	font-size: 2.5rem;
-	color: #fff;
-	margin: 0;
+  padding: 0 2rem;
+  line-height: 1;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
 }
 
 .line {
-	background-color: var(--text-color);
-	height: 1px;
-	flex: 1;
+  background-color: var(--text-color);
+  height: 1px;
+  flex: 1;
 }
 
 .bottom {
-	display: flex;
-	width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .left,
 .right {
-	display: flex;
-	flex-flow: column;
-	/* justify-content: center; */
-	/* background-color: red; */
-	padding: 0 2rem;
-	flex: 1;
+  display: flex;
+  flex-flow: column;
+  /* justify-content: center; */
+  /* background-color: red; */
+  padding: 0 2rem;
+  flex: 1;
 }
 
 .right {
-	align-items: flex-end;
+  align-items: flex-end;
 }
 
 .right a,
 .left a {
-	font-size: 1.5rem;
-	margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .middle {
-	flex: 2;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: column;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .bottom-links {
-	display: none;
-	justify-content: space-evenly;
-	flex-wrap: wrap;
-	width: 100%;
-	padding-bottom: 1.5rem;
+  display: none;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 1.5rem;
 }
 
 .bottom-links a {
-	font-size: 0.9rem;
-	margin: 0.5rem 1rem;
+  font-size: 0.9rem;
+  margin: 0.5rem 1rem;
 }
 
 .icons {
-	font-size: 2.5rem;
-	margin: 0 1rem;
+  font-size: 2.5rem;
+  margin: 0 1rem;
 }
 
 .newsletter {
-	margin: 1rem 0;
-	font-size: 1.5rem;
+  margin: 1rem 0;
+  font-size: 1.5rem;
 }
 
 .email {
-	border-bottom: 1px solid #fff;
-	padding-bottom: 0.5rem;
-	margin-bottom: 0.5rem;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .subscribe {
-	all: unset;
-	margin-top: 0.5rem;
-	cursor: pointer;
-	padding: 0.5rem 1rem;
-	border-radius: 0.25rem;
-	font-size: 1.25rem;
+  all: unset;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
 }
 
 .subscribe:hover {
-	background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .copyright {
-	padding: 2rem;
+  padding: 2rem;
 }
 
 @media (max-width: 700px) {
-	.newsletter {
-		font-size: 1.25rem;
-	}
-	.bottom {
-		flex-flow: column;
-		align-items: center;
-	}
-	.bottom-links {
-		display: flex;
-	}
-	.left,
-	.right {
-		display: none;
-	}
+  .newsletter {
+    font-size: 1.25rem;
+  }
+  .bottom {
+    flex-flow: column;
+    align-items: center;
+  }
+  .bottom-links {
+    display: flex;
+  }
+  .left,
+  .right {
+    display: none;
+  }
 }
 
 @media (max-width: 426px) {
-	.logo {
-		padding: 0 1rem;
-		font-size: 2rem;
-	}
+  .logo {
+    padding: 0 1rem;
+    font-size: 2rem;
+  }
 }
