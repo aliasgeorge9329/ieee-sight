@@ -22,7 +22,7 @@ function Navbar() {
           <Link href={"/knowledgehub"} passHref>
             <li>KNOWLEDGE HUB</li>
           </Link>
-          <Link href={"/solutionhub"} passHref>
+          <Link href={"/solutionshub"} passHref>
             <li>SOLUTIONS HUB</li>
           </Link>
           <Link href={"/problemshub"} passHref>
