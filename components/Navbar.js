@@ -1,9 +1,21 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../lib/authContext";
 import Link from "next/link";
-
+import firebase from "firebase";
 import styles from "../styles/Navbar.module.css";
+import router from "next/router";
 
+
+function signOut() {
+  
+  firebase.auth().signOut().then(function() {
+    //console.log('Signed Out');
+      router.push("/");
+  }, function(error) {
+    //console.error('Sign Out Error', error);
+  });
+
+}
 function Navbar() {
   const { user, username } = useContext(UserContext);
 
@@ -47,9 +59,12 @@ function Navbar() {
             <Link href={`/${username}`} passHref>
               <div
                 className={styles["avatar"] + " pointer"}
-                style={{ backgroundImage: `url(${user.photoURL})` }}
+                style={{ backgroundImage: `url(${user?.photoURL})` }}
               ></div>
             </Link>
+            <button onClick={signOut}>
+                  Logout
+            </button>
           </div>
         )}
       </div>
