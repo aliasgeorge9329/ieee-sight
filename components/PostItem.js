@@ -1,5 +1,5 @@
 import styles from "../styles/PostItem.module.css";
-import { AiOutlineLike } from "react-icons/ai";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import ShareButton from "./ShareButton";
 import Link from "next/link";
 import { Image } from "@chakra-ui/react";
@@ -42,7 +42,7 @@ function PostItem({ post, admin = false }) {
 
         <div className={styles["icons"]}>
           <div className="flex align-center pointer">
-            <AiOutlineLike />
+            <BsSuitHeart />
             <div className="spacerh-xs"></div>
             {post.likeCount}
           </div>

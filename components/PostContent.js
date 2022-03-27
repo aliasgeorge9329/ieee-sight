@@ -5,6 +5,7 @@ import CommentItem from "./CommentItem";
 import CommentButton from "./CommentButton";
 import ShareButton from "./ShareButton";
 import LikeButton from "./LikeButton";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 // extras
 import React, { useEffect, useState, useContext } from "react";
 import router, { useRouter } from "next/router";
@@ -18,6 +19,7 @@ import Link from "next/dist/client/link";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { auth, firestore, serverTimestamp } from "./../lib/firebase.js";
 import { AiOutlineLike, AiFillDelete } from "react-icons/ai";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { useCollection } from "react-firebase-hooks/firestore";
 import removeElementsByClass from "../lib/removeElementsByClassName";
@@ -60,7 +62,7 @@ function DeletePostButton({ postRef }) {
     }
   };
 
-  return <AiFillDelete onClick={deletePost} />;
+  return <RiDeleteBin6Line onClick={deletePost} />;
 }
 
 let allComments = [];
@@ -79,8 +81,6 @@ const PostContent = ({ post, posts, postRef }) => {
   );
 
   const [rerender, setRerender] = useState(false);
-
-  let isAdmin = currentUser?.uid === post.uid;
 
   useEffect(() => {
     if (comments) {
@@ -129,7 +129,7 @@ const PostContent = ({ post, posts, postRef }) => {
                       displayLoginPrompt(e, "Please login to Like");
                     }}
                   >
-                    <AiOutlineLike />
+                    <BsSuitHeart />
                   </div>
                 }
               >
@@ -148,11 +148,7 @@ const PostContent = ({ post, posts, postRef }) => {
         </div>
 
         <div className={styles["content"] + " blog-margin"}>
-          <ReactQuill
-            value={post?.content}
-            readOnly={!isAdmin}
-            theme={"bubble"}
-          />
+          <ReactQuill value={post?.content} readOnly={true} theme={"bubble"} />
         </div>
 
         <div className="spacerv-sm"></div>

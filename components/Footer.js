@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className={styles.footer + " " + "margin"}>
       <div className={styles.top}>
         <div className={styles.line}></div>
-        <h2 className={styles.logo}>IEEE SIGHT</h2>
         <div className={styles.line}></div>
       </div>
       <div className={styles.bottom}>

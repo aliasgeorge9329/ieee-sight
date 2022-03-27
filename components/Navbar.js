@@ -72,19 +72,27 @@ function HamMenu() {
           <div className="bar btmBar"></div>
         </div>
       </div>
-      <ul>
-        <Link href={"/"} passHref>
-          <li>HOME</li>
-        </Link>
-        <Link href={"/knowledgehub"} passHref>
-          <li>KNOWLEDGE HUB</li>
-        </Link>
-        <Link href={"/solutionshub"} passHref>
-          <li>SOLUTIONS HUB</li>
-        </Link>
-        <Link href={"/problemshub"} passHref>
-          <li>PROBLEMS HUB</li>
-        </Link>
+      <ul className="menu">
+        <li className="menu-item">
+          <Link href={"/"} passHref>
+            HOME
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link href={"/knowledgehub"} passHref>
+            KNOWLEDGE HUB
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link href={"/solutionshub"} passHref>
+            SOLUTIONS HUB
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link href={"/problemshub"} passHref>
+            PROBLEMS HUB
+          </Link>
+        </li>
       </ul>
     </div>
   );
