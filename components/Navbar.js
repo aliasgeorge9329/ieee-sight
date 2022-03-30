@@ -3,22 +3,8 @@ import { UserContext } from "../lib/authContext";
 import Link from "next/link";
 import firebase from "firebase";
 import styles from "../styles/Navbar.module.css";
-import router from "next/router";
+import { useRouter } from "next/dist/client/router";
 
-// function signOut() {
-//   firebase
-//     .auth()
-//     .signOut()
-//     .then(
-//       function () {
-//         //console.log('Signed Out');
-//         router.push("/");
-//       },
-//       function (error) {
-//         //console.error('Sign Out Error', error);
-//       }
-//     );
-// }
 function Navbar() {
   const { user, username } = useContext(UserContext);
 
@@ -74,6 +60,7 @@ function Navbar() {
 
 function HamMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
   return (
     <div className={`ham-menu ${menuOpen ? "menu-opened" : ""}`}>
       <div
@@ -89,24 +76,48 @@ function HamMenu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link href={"/"} passHref>
+          <button
+            className={styles.buttonreset}
+            onClick={() => {
+              router.push("/");
+              setMenuOpen(!menuOpen);
+            }}
+          >
             HOME
-          </Link>
+          </button>
         </li>
         <li className="menu-item">
-          <Link href={"/knowledgehub"} passHref>
+          <button
+            className={styles.buttonreset}
+            onClick={() => {
+              router.push("/knowledgehub");
+              setMenuOpen(!menuOpen);
+            }}
+          >
             KNOWLEDGE HUB
-          </Link>
+          </button>
         </li>
         <li className="menu-item">
-          <Link href={"/solutionshub"} passHref>
+          <button
+            className={styles.buttonreset}
+            onClick={() => {
+              router.push("/solutionshub");
+              setMenuOpen(!menuOpen);
+            }}
+          >
             SOLUTIONS HUB
-          </Link>
+          </button>
         </li>
         <li className="menu-item">
-          <Link href={"/problemshub"} passHref>
+          <button
+            className={styles.buttonreset}
+            onClick={() => {
+              router.push("/problemshub");
+              setMenuOpen(!menuOpen);
+            }}
+          >
             PROBLEMS HUB
-          </Link>
+          </button>
         </li>
       </ul>
     </div>

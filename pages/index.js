@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-
+import IndexCard from "../components/IndexCard";
 import { useState } from "react";
 import { firestore, fromMillis, postToJSON } from "../lib/firebase";
 
@@ -57,6 +57,8 @@ export default function Home(props) {
     <div className="body">
       <Hero />
       <div className="margin">
+        <IndexCard />
+
         <div className="about">
           <h1>About Us</h1>
           <br />
