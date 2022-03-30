@@ -11,6 +11,7 @@ import styles from "../../styles/NewPost.module.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
+import { tokenToCSSVar } from "@chakra-ui/react";
 
 const AdminPostEdit = (props) => {
   return (
@@ -44,7 +45,8 @@ function PostEditor() {
     <div className="margin">
       {post && (
         <>
-          <h1>{post.title}</h1>
+
+          
           <div className="spacerv-sm"></div>
           <PostForm postRef={postRef} defaultValues={post} />
         </>
@@ -54,14 +56,16 @@ function PostEditor() {
 }
 
 function PostForm({ defaultValues, postRef }) {
+  
   const { register, handleSubmit, reset } = useForm({
     defaultValues,
     mode: "onChange",
   }); //React hook form, function takes in object
   const [article, setArticle] = useState(defaultValues.content);
-
+  const [title, setTitle] = useState(defaultValues.title);
   const updatePost = async ({ published }) => {
     await postRef.update({
+      title : title,
       content: article,
       published: published,
       updatedAt: serverTimestamp(),
@@ -109,7 +113,17 @@ function PostForm({ defaultValues, postRef }) {
   };
 
   return (
+
     <form onSubmit={handleSubmit(updatePost)}>
+      
+      <input type='text' onChange={(e)=>{
+        
+        setTitle(e.target.value);
+      }} value={title}/>
+      <br/>
+      <br/>
+      
+
       <div className={styles["quill"]}>
         <ReactQuill
           modules={modules}
