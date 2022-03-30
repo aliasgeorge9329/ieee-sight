@@ -3,7 +3,7 @@
 import styles from '../styles/UserProfile.module.css'
 
 export default function UserProfile({ user }) {
-	console.log(user)
+	//console.log(user)
 	return (
 		<section className={styles['user-profile-section']}>
 			<img className={styles['user-profile-img']} src={user.photoURL} alt='UserImage' />

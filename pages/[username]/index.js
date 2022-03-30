@@ -1,4 +1,6 @@
-import { getUserWithUsername, postToJSON } from "../../lib/firebase";
+import { auth, getUserWithUsername, postToJSON } from "../../lib/firebase";
+import AuthCheck from "../../components/AuthCheck";
+
 import router from "next/router";
 import { useRouter } from "next/router";
 import UserProfile from "../../components/UserProfile";
@@ -33,6 +35,13 @@ export async function getServerSideProps({ query }) {
   };
 }
 
+
+
+const signOut = () => {
+      auth.signOut();
+      router.reload();
+  }
+
 export default function UserProfilePage({ user, posts }) {
   const router = useRouter();
   return (
@@ -41,13 +50,15 @@ export default function UserProfilePage({ user, posts }) {
       <div className="spacerv-sm"></div>
       <UserProfile user={user} />
       <div className="spacerv-sm"></div>
-      <button
-        onClick={() => {
-          router.push("/auth");
-        }}
-      >
-        Logout
-      </button>
+      <AuthCheck>
+        <button
+          onClick={() => {
+            signOut()
+          }}
+        >
+          Logout
+        </button>
+      </AuthCheck>
       <PostFeed posts={posts} />
       <div className="spacerv-md"></div>
     </main>

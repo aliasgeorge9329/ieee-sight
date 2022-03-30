@@ -6,7 +6,7 @@ const AuthCheck = (props) => {
     const { username } = useContext(UserContext);
 
     return (  
-        username ? props.children : props.fallback || <Link href="/enter">Please Sign In</Link>
+        username ? props.children : props.fallback || <Link href="/auth">Please Sign In</Link>
     );
 }
  

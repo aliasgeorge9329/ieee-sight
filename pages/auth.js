@@ -23,8 +23,10 @@ export default function Enter(props) {
 }
 
 function SignInButton(){
+    const router = useRouter()
     const signInWithGoogle = async () => {
         await auth.signInWithPopup(googleAuthProvider);
+        router.push('/')
     };
 
     return(
