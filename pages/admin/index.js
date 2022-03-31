@@ -96,7 +96,11 @@ function CreateNewPost() {
         <input
           type="radio"
           className="typeform"
-          onChange={(e) => setPostType("solution-hub")}
+          onChange={(e) =>{
+            e.preventDefault()
+            if(e.currentTarget.checked)
+            
+            setPostType("solution-hub")}}
           id="contactChoice1"
           name="postType"
           value="solution-hub"
@@ -105,7 +109,11 @@ function CreateNewPost() {
         <input
           type="radio"
           className="typeform"
-          onChange={(e) => setPostType("knowledge-hub")}
+          onChange={(e) => {
+            e.preventDefault()
+            if(e.currentTarget.checked)
+            
+            setPostType("knowledge-hub")}}
           id="contactChoice1"
           name="postType"
           value="knowledge-hub"
@@ -114,7 +122,11 @@ function CreateNewPost() {
         <input
           type="radio"
           className="typeform"
-          onChange={(e) => setPostType("problems-hub")}
+          onChange={(e) =>{ 
+            e.preventDefault()
+            if(e.currentTarget.checked)
+            
+            setPostType("problems-hub")}}
           id="contactChoice1"
           name="postType"
           value="problems-hub"
