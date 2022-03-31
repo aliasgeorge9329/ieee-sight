@@ -1,4 +1,4 @@
-import { auth, getUserWithUsername, postToJSON } from "../../lib/firebase";
+import { auth, firestore, getUidFromUsername ,getUserWithUsername, postToJSON } from "../../lib/firebase";
 import AuthCheck from "../../components/AuthCheck";
 
 import router from "next/router";
@@ -9,18 +9,24 @@ export async function getServerSideProps({ query }) {
   const { username } = query;
 
   const userDoc = await getUserWithUsername(username);
+  const PostUserUid = await getUidFromUsername(username);
+  
 
   if (!userDoc) {
-    return {
+    return {  
       notFound: true,
     };
   }
 
   let user = null;
   let posts = null;
+  
 
   if (userDoc) {
+
     user = userDoc.data();
+
+    
     const postsQuery = userDoc.ref
       .collection("posts")
       .where("published", "==", true)
@@ -31,34 +37,42 @@ export async function getServerSideProps({ query }) {
   }
 
   return {
-    props: { user, posts },
+    props: { user, posts, PostUserUid },
   };
 }
 
 
 
 const signOut = () => {
+      
       auth.signOut();
       router.reload();
   }
 
-export default function UserProfilePage({ user, posts }) {
+export default function UserProfilePage({ user, posts , PostUserUid}) 
+{
   const router = useRouter();
+  const currentUser = auth.currentUser
+    
+  
   return (
     <main id="main-container" className="margin">
       <div className="nav-spacer"></div>
       <div className="spacerv-sm"></div>
       <UserProfile user={user} />
       <div className="spacerv-sm"></div>
-      <AuthCheck>
-        <button
-          onClick={() => {
-            signOut()
-          }}
-        >
-          Logout
-        </button>
-      </AuthCheck>
+      
+        {
+          (currentUser?.uid ===  PostUserUid.uid) && <button
+            onClick={
+                () => {
+              signOut()
+            }
+          }
+          >
+            Logout
+          </button>
+        }
       <PostFeed posts={posts} />
       <div className="spacerv-md"></div>
     </main>
