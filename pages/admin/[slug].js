@@ -11,7 +11,6 @@ import styles from "../../styles/NewPost.module.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
-import { tokenToCSSVar } from "@chakra-ui/react";
 
 const AdminPostEdit = (props) => {
   return (
