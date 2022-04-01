@@ -96,11 +96,10 @@ function CreateNewPost() {
         <input
           type="radio"
           className="typeform"
-          onChange={(e) =>{
-            e.preventDefault()
-            if(e.currentTarget.checked)
-            
-            setPostType("solution-hub")}}
+          onChange={(e) => {
+            e.preventDefault();
+            if (e.currentTarget.checked) setPostType("solution-hub");
+          }}
           id="contactChoice1"
           name="postType"
           value="solution-hub"
@@ -110,10 +109,9 @@ function CreateNewPost() {
           type="radio"
           className="typeform"
           onChange={(e) => {
-            e.preventDefault()
-            if(e.currentTarget.checked)
-            
-            setPostType("knowledge-hub")}}
+            e.preventDefault();
+            if (e.currentTarget.checked) setPostType("knowledge-hub");
+          }}
           id="contactChoice1"
           name="postType"
           value="knowledge-hub"
@@ -122,15 +120,13 @@ function CreateNewPost() {
         <input
           type="radio"
           className="typeform"
-          onChange={(e) =>{ 
-            e.preventDefault()
-            if(e.currentTarget.checked)
-            
-            setPostType("problems-hub")}}
+          onChange={(e) => {
+            e.preventDefault();
+            if (e.currentTarget.checked) setPostType("problems-hub");
+          }}
           id="contactChoice1"
           name="postType"
           value="problems-hub"
-          checked
         ></input>
 
         <button type="submit" disabled={!isValid}>

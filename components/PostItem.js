@@ -22,7 +22,7 @@ function PostItem({ post, admin = false }) {
             <Image
               style={{ cursor: "pointer" }}
               src={image(post.content)}
-              className={image(post.content) ? styles["img"] : ""}
+              className={image(post.content) ? styles["img"] : styles["img1"]}
             />
           </Link>
         </div>

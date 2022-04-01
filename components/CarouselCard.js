@@ -16,27 +16,27 @@ export default function CarouselCard() {
         <p className="legend">Site Visit</p>
       </div>
       <div>
-        <img src="/slideshow/2.png" className={styles.img} />
+        <Image src="/slideshow/2.png" className={styles.img} />
         <p className="legend">Site Visit</p>
       </div>
       <div>
-        <img src="/slideshow/3.png" className={styles.img} />
+        <Image src="/slideshow/3.png" className={styles.img} />
         <p className="legend">Site Visit</p>
       </div>
       <div>
-        <img src="/slideshow/4.png" className={styles.img} />
+        <Image src="/slideshow/4.png" className={styles.img} />
         <p className="legend">Site Visit</p>
       </div>
       <div>
-        <img src="/slideshow/5.png" className={styles.img} />
+        <Image src="/slideshow/5.png" className={styles.img} />
         <p className="legend">Site Visit</p>
       </div>
       <div>
-        <img src="/slideshow/6.png" className={styles.img} />
+        <Image src="/slideshow/6.png" className={styles.img} />
         <p className="legend">Project</p>
       </div>
       <div>
-        <img src="/slideshow/7.png" className={styles.img} />
+        <Image src="/slideshow/7.png" className={styles.img} />
         <p className="legend">Project</p>
       </div>
     </Carousel>

@@ -35,6 +35,12 @@
   width: 100%;
   height: 100%;
 }
+.img1 {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
 .author {
   background-color: #3ba7ff;
   background-image: linear-gradient(147deg, #3b89ff 0%, #258bff 74%);
