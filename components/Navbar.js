@@ -1,60 +1,63 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../lib/authContext";
 import Link from "next/link";
-import firebase from "firebase";
 import styles from "../styles/Navbar.module.css";
 import { useRouter } from "next/dist/client/router";
+import HeaderImages from "./HeaderImages";
 
 function Navbar() {
   const { user, username } = useContext(UserContext);
 
   return (
-    <nav className={styles["navbar"] + " margin"}>
-      <HamMenu />
-      <Link href={"/"} passHref>
-        <div className={styles["logo-wrapper"] + " pointer"}>IEEE SIGHT</div>
-      </Link>
+    <>
+      <HeaderImages />
+      <nav className={styles["navbar"] + " margin"}>
+        <HamMenu />
+        <Link href={"/"} passHref>
+          <div className={styles["logo-wrapper"] + " pointer"}>IEEE SIGHT</div>
+        </Link>
 
-      <div className={styles["nav-links-wrapper"]}>
-        <ul>
-          <Link href={"/"} passHref>
-            <li>HOME</li>
-          </Link>
-          <Link href={"/knowledgehub"} passHref>
-            <li>KNOWLEDGE HUB</li>
-          </Link>
-          <Link href={"/solutionshub"} passHref>
-            <li>SOLUTIONS HUB</li>
-          </Link>
-          <Link href={"/problemshub"} passHref>
-            <li>PROBLEMS HUB</li>
-          </Link>
-        </ul>
-      </div>
+        <div className={styles["nav-links-wrapper"]}>
+          <ul>
+            <Link href={"/"} passHref>
+              <li>HOME</li>
+            </Link>
+            <Link href={"/knowledgehub"} passHref>
+              <li>KNOWLEDGE HUB</li>
+            </Link>
+            <Link href={"/solutionshub"} passHref>
+              <li>SOLUTIONS HUB</li>
+            </Link>
+            <Link href={"/problemshub"} passHref>
+              <li>PROBLEMS HUB</li>
+            </Link>
+          </ul>
+        </div>
 
-      <div className={styles["login-wrapper"]}>
-        {!username && <Link href="/auth">Login</Link>}
-        {username && (
-          <div className={styles["user-cred-wrapper"]}>
-            <Link href={"/admin"} passHref>
-              <p className={styles["write-post"]}>
-                <span
-                  className={styles["new-post-icon"] + " iconify"}
-                  data-icon="bytesize:plus"
-                ></span>{" "}
-                &nbsp;Post
-              </p>
-            </Link>
-            <Link href={`/${username}`} passHref>
-              <div
-                className={styles["avatar"] + " pointer"}
-                style={{ backgroundImage: `url(${user?.photoURL})` }}
-              ></div>
-            </Link>
-          </div>
-        )}
-      </div>
-    </nav>
+        <div className={styles["login-wrapper"]}>
+          {!username && <Link href="/auth">Login</Link>}
+          {username && (
+            <div className={styles["user-cred-wrapper"]}>
+              <Link href={"/admin"} passHref>
+                <p className={styles["write-post"]}>
+                  <span
+                    className={styles["new-post-icon"] + " iconify"}
+                    data-icon="bytesize:plus"
+                  ></span>{" "}
+                  &nbsp;Post
+                </p>
+              </Link>
+              <Link href={`/${username}`} passHref>
+                <div
+                  className={styles["avatar"] + " pointer"}
+                  style={{ backgroundImage: `url(${user?.photoURL})` }}
+                ></div>
+              </Link>
+            </div>
+          )}
+        </div>
+      </nav>
+    </>
   );
 }
 

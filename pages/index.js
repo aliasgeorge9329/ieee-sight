@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import IndexCard from "../components/IndexCard";
 import { useState } from "react";
 import { firestore, fromMillis, postToJSON } from "../lib/firebase";
+import CarouselCard from "../components/CarouselCard";
 
 // Max post to query per page
 const LIMIT = 4;
@@ -54,34 +55,40 @@ export default function Home(props) {
   };
 
   return (
-    <div className="body">
-      <Hero />
-      <div className="margin">
-        <IndexCard />
+    <>
+      <div className="body">
+        <Hero />
 
-        <div className="about">
-          <h1>About Us</h1>
+        <div className="margin">
+          <CarouselCard />
           <br />
-          <h3>Mission</h3>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-            eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
-            aperiam hic cum optio deleniti repudiandae ut consequuntur officia
-            exercitationem saepe laudantium.
-          </p>
-          <br />
-          <h3>Vision</h3>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-            eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
-            aperiam hic cum optio deleniti repudiandae ut consequuntur officia
-            exercitationem saepe laudantium.
-          </p>
-          <div className="margin"></div>
+
+          <IndexCard />
+
+          <div className="about">
+            <h1>About Us</h1>
+            <br />
+            <h3>Mission</h3>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+              eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
+              aperiam hic cum optio deleniti repudiandae ut consequuntur officia
+              exercitationem saepe laudantium.
+            </p>
+            <br />
+            <h3>Vision</h3>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+              eligendi fugit doloremque alias fuga illo molestias, sapiente, nam
+              aperiam hic cum optio deleniti repudiandae ut consequuntur officia
+              exercitationem saepe laudantium.
+            </p>
+            <div className="margin"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

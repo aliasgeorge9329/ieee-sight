@@ -1,0 +1,43 @@
+.center {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 50px 20px 30px;
+}
+
+.img1 {
+  width: 6%;
+  height: 6%;
+  border-radius: 10px;
+}
+
+.img2 {
+  width: 15%;
+  height: 10%;
+  border-radius: 10px;
+}
+
+.img3 {
+  width: 8%;
+  height: 10%;
+  border-radius: 10px;
+}
+
+@media (max-width: 950px) {
+  .img1 {
+    width: 10%;
+    height: 10%;
+    border-radius: 10px;
+  }
+
+  .img2 {
+    width: 30%;
+    height: 15%;
+    border-radius: 10px;
+  }
+
+  .img3 {
+    width: 15%;
+    height: 20%;
+    border-radius: 10px;
+  }
+}

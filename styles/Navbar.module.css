@@ -2,11 +2,12 @@
   width: 100vw;
   height: var(--nav-height);
   max-width: unset;
-  backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  position: fixed;
+  position: fixed; */
+  position: relative;
   left: 0;
-  top: 0;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
